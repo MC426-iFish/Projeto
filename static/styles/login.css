@@ -174,7 +174,7 @@
   font: 700 28px "Inter", sans-serif;
   text-transform: uppercase;
   position: absolute;
-  left: 42px;
+  left: 133px;
   top: 189px;
 }
 .group-23 {
@@ -193,17 +193,11 @@
   position: absolute;
   left: 41px;
   top: 409px;
-}
-.entrar {
+  cursor: pointer;
   color: #000000;
-  text-align: left;
+  text-align: center;
   font: 600 14px "Inter", sans-serif;
   text-transform: uppercase;
-  position: absolute;
-  left: 150px;
-  top: 424px;
-  width: 59px;
-  height: 16px;
 }
 .group-26 {
   width: 277px;
@@ -221,17 +215,6 @@
   position: absolute;
   left: 41px;
   top: 285px;
-}
-.email {
-  color: rgba(0, 0, 0, 0.6);
-  text-align: left;
-  font: 400 18px "Inter", sans-serif;
-  position: absolute;
-  left: 156px;
-  top: 292px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
 }
 .continuar-com-o-google {
   color: #000000;
@@ -271,13 +254,26 @@
   left: 41px;
   top: 347px;
 }
-.senha {
+::placeholder {
   color: rgba(0, 0, 0, 0.6);
-  text-align: left;
+  text-align: center;
   font: 400 18px "Inter", sans-serif;
-  position: absolute;
-  left: 152px;
-  top: 354px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font: 400 18px "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font: 400 18px "Inter", sans-serif;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -287,6 +283,7 @@
   left: 276px;
   top: 355px;
   overflow: visible;
+  cursor: pointer;
 }
 .group-38 {
   width: 55px;
