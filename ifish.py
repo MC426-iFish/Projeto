@@ -30,7 +30,7 @@ def signUpForm():
         user = User.query.filter_by(email=email).first()
         message, validation = signup_validator.validate(name, email, password, passwordCheck, user)
         if not validation:
-            flash(message, category='sucess')    
+            flash(message, category='danger')    
         else:
             newUser = User(name=name, email=email, password=password)
             db.session.add(newUser)
