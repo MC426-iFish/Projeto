@@ -54,19 +54,23 @@ def signUpForm():
             newUser = User(name=name, email=email, password=password)
             db.session.add(newUser)
             db.session.commit()
-            Email = request.form["singUpEmail"]                           #para fins de teste
-            session["userEmail"] = Email                                  #para fins de teste
+            Email = request.form["singUpEmail"]                           
+            session["userEmail"] = Email                                  
             flash('Conta Criada com Sucesso!', category='sucess')
             return redirect(url_for("user"))
         
     return render_template("signUp.html")
 
+@app.route("/logout", methods=["GET", "POST"])
+def logout():
+    session.pop("userEmail", None)
+    return redirect(url_for("login"))
 
 @app.route("/user")
 def user():
     if "userEmail" in session:
         userEmail = session["userEmail"]
-        return f"<h1>{userEmail}</h1>"
+        return render_template("user.html", userEmail=userEmail)
     else:
         return redirect(url_for("login"))
 
