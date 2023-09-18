@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request, session, f
 from flask_sqlalchemy import SQLAlchemy
 from utils import signup_validator
 
+
 app = Flask(__name__)
 app.secret_key = "MC426ifish"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.sqlite3'
@@ -19,6 +20,24 @@ class User(db.Model):
         self.email = email
         self.password = password
 
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        userEmail = request.form["loginEmail"]
+        userPassword = request.form["loginPassword"]
+        session["userEmail"] = userEmail
+        if(User.query.filter_by(email=userEmail).first() == None):
+            
+            flash('Usuario não existe', category='danger')
+            
+        elif(userPassword == User.query.filter_by(email=userEmail).first().password):
+            return redirect(url_for("user"))
+        else:
+            flash('Senha incorreta', category='danger')
+            
+    
+    return render_template("login.html")
 
 @app.route("/signUp", methods=["GET", "POST"])
 def signUpForm():
@@ -42,6 +61,7 @@ def signUpForm():
         
     return render_template("signUp.html")
 
+
 @app.route("/user")
 def user():
     if "userEmail" in session:
@@ -51,6 +71,8 @@ def user():
         return redirect(url_for("login"))
 
 if __name__ == "__main__":
+
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+
