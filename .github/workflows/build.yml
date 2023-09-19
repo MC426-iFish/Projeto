@@ -8,20 +8,25 @@ jobs:
         python-version: ["3.9"]
     steps:
       - uses: actions/checkout@v3
+
       - name: Install Poetry
         run: pipx install poetry
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
           cache: "poetry"
+
       - name: Install dependencies
         run: poetry install --no-root
+
       - name: Testing
         run: |
           poetry run coverage run -m unittest teste_cadastro.py
           poetry run coverage report --show-missing
           poetry run coverage xml
+          
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
 
