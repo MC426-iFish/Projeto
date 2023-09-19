@@ -9,8 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Poetry
-        run: pipx install poetry
+      - name: Install requirements
+        run: pipx install requirements -r
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
@@ -23,10 +23,7 @@ jobs:
 
       - name: Testing
         run: |
-          poetry run coverage run -m unittest teste_cadastro.py
+          poetry run coverage run -m unittest ifish/teste_cadastro.py
           poetry run coverage report --show-missing
           poetry run coverage xml
-          
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
 
