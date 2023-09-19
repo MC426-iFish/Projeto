@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
-from utils import signup_validator
+from ifish.utils import signup_validator
 
 
 app = Flask(__name__)
