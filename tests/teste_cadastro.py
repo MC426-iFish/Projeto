@@ -1,6 +1,6 @@
 import unittest
 
-from utils.signup_validator import validate
+from ifish.utils.signup_validator import validate
 
 class TestCadastro(unittest.TestCase):
     def test_already_signed_up(self):
