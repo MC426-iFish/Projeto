@@ -1,2 +1,2 @@
-from .ifish import *
+from ifish import *
 from .utils import *
