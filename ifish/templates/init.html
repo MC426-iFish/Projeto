@@ -1,5 +1,4 @@
 <html>
-
     <head>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/init.css')}}">
     </head>
@@ -13,11 +12,11 @@
                 <span class="i-fish-span2"></span>
             </span>
             </div>
-            <form action="/signUp" method="post">
-                <input id="redCadastro" type="submit" name="redCadastro" value="Criar Conta" class="rectangle-19"/>
+            <form action="/signUp" method="POST">
+                <input id="redCadastro" type="submit" name="redirect" value="Criar Conta" class="rectangle-19"/>
             </form>
-            <form action="/login" method="post">
-                <input id="redLogin" type="submit" name="redLogin" value="Fazer Login" class="rectangle-20"/>
+            <form action="/login" method="POST">
+                <input id="redLogin" type="submit" name="redirect" value="Fazer Login" class="rectangle-20"/>
             </form>
     
             <div class="fluent-emoji-fish">
