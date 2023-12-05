@@ -74,6 +74,10 @@ def user():
     else:
         return redirect(url_for("login"))
 
+@app.route("/")
+def init():
+    return render_template("init.html")
+
 if __name__ == "__main__":
 
     with app.app_context():
