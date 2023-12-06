@@ -64,7 +64,8 @@ def sign_up():
             db.session.add(newUser)
             db.session.commit()
             Email = request.form["singUpEmail"]                           
-            # session["userEmail"] = Email                                  
+            # session["userEmail"] = Email              
+            login_user(newUser, remember=True)                    
             flash('Conta Criada com Sucesso!', category='sucess')
             return redirect(url_for("views.home"))
         
