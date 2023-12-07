@@ -48,6 +48,7 @@
                 </ul>
                 {% endif %}
             {% endwith %}
+            
             </div>
             </div>
             <div class="bloco-vendas">
@@ -105,26 +106,23 @@
         
             <div class="rectangle-11"></div>
             <div class="remover2">Remover</div>
-            
-            
-            <div class="checkbox">
-            <div class="group-47">
-                <div class="ellipse-1"></div>
-                <div class="sardinha-10-pe-as-5-kg">Sardinha - 10 peças / 5Kg</div>
+            <form action="#" method="POST">
+            <div CLASS="rbutton">
+                {% with fishes = fishes %}
+                    {% if fishes %}
+                        <ul class="no-bullets">
+                        {% for fish in fishes %}
+                            <li><INPUT TYPE="RADIO" NAME="OPCAO" VALUE="{{fish.type}}" required>{{fish.type}}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
             </div>
+            <div class="rectangle-11">
+                <div class="remover2">Remover</div>
             </div>
-            <div class="checkbox2">
-            <div class="group-47">
-                <div class="ellipse-1"></div>
-                <div class="sardinha-10-pe-as-5-kg">Atum - 2 peças / 3 Kg</div>
-            </div>
-            </div>
-            <div class="checkbox3">
-            <div class="group-47">
-                <div class="ellipse-1"></div>
-                <div class="sardinha-10-pe-as-5-kg">Linguado - 3 peças / 8 Kg</div>
-            </div>
-            </div>
+            <input id="removersubmit" type="submit" name="removersubmit" value="Remover" class="rectangle-11t"/>
+            </form>
             <svg
             class="house-solid-1"
             width="50"
