@@ -7,11 +7,6 @@
         <center>
             <div class="tela-comprador">
                 <div class="rectangle-8"></div>
-                <div class="boa-tarde-cl-ber">
-                  Boa tarde,
-                  <br />
-                  Cléber
-                </div>
               
                 <svg
                   class="settings"
@@ -27,7 +22,6 @@
                   />
                 </svg>
               
-                <div class="rodap-sele-es">
                   <div class="config"></div>
                   <div class="estoque"></div>
                   <div class="pesquisa"></div>
@@ -95,7 +89,7 @@
                       </clipPath>
                     </defs>
                   </svg>
-                </div>
+                
                 <svg
                   class="vector6"
                   width="50"
@@ -109,18 +103,7 @@
                     fill="black"
                   />
                 </svg>
-              
-                <div class="menus">
-                  <div class="rectangle-16"></div>
-                  <div class="rectangle-13"></div>
-                  <div class="rectangle-14"></div>
-                  <div class="rectangle-15"></div>
-                  <div class="top-10-mais-vendidos">Top 10 Mais vendidos!</div>
-                  <div class="perto-de-voc">Perto de você!</div>
-                  <div class="o-que-voc-quer-comer">O que você quer comer?</div>
-                  <div class="ltimas-compras">Últimas compras</div>
-                </div>
-                <div class="loja">
+                
                   <div class="rectangle-17"></div>
                   <div class="_1-6-km">1,6 Km</div>
                   <div class="rectangle-18"></div>
@@ -166,7 +149,7 @@
                       </clipPath>
                     </defs>
                   </svg>
-                </div>
+                
                 <div class="feira-de-cleiton-5">Feira de Cleiton 5</div>
                 <svg
                   class="estrela"
@@ -253,7 +236,7 @@
                 <div class="boa-tarde-cl-ber">
                   Boa tarde,
                   <br />
-                  Cléber
+                  {{user.name.split()[0]}}
                 </div>
               
                 <svg
@@ -269,12 +252,18 @@
                     fill="black"
                   />
                 </svg>
-              
-                <div class="rodap-sele-es">
-                  <div class="config"></div>
-                  <div class="estoque"></div>
-                  <div class="pesquisa"></div>
-                  <div class="mapa"></div>
+                
+                  <form action="#" method="POST">
+                    <input class="configt" name="redirect" type="submit" value="carrinho"/>
+                  </form>
+                  <form action="#" method="POST">
+                    <input class="estoquet" name="redirect" type="submit" value="historico"/>
+                  </form>
+                  <form action="#" method="POST">
+                    <input class="pesquisat", name="redirect" type="submit" value="busca"/>
+                  </form>
+                    <div class="mapa"></div>
+                  
                   <svg
                     class="mapa3"
                     width="50"
@@ -338,7 +327,7 @@
                       </clipPath>
                     </defs>
                   </svg>
-                </div>
+                
                 <svg
                   class="vector19"
                   width="50"
@@ -353,17 +342,24 @@
                   />
                 </svg>
               
-                <div class="menus">
+                <form action="#" method="POST">
                   <div class="rectangle-162"></div>
+                  <input class="rectangle-162t" type="submit" name="redirect" value="historico"/>
+                </form>
+                  
+                <form action="#" method="POST">
                   <div class="rectangle-132"></div>
+                  <input class="rectangle-132t" type="submit" name="redirect" value="busca"/>
+                </form>
+                  
                   <div class="rectangle-142"></div>
                   <div class="rectangle-152"></div>
                   <div class="top-10-mais-vendidos">Top 10 Mais vendidos!</div>
                   <div class="perto-de-voc">Perto de você!</div>
                   <div class="o-que-voc-quer-comer">O que você quer comer?</div>
                   <div class="ltimas-compras">Últimas compras</div>
-                </div>
-                <div class="loja">
+                
+                
                   <div class="rectangle-172"></div>
                   <div class="_1-6-km">1,6 Km</div>
                   <div class="rectangle-182"></div>
@@ -409,7 +405,7 @@
                       </clipPath>
                     </defs>
                   </svg>
-                </div>
+                
                 <div class="feira-de-cleiton-5">Feira de Cleiton 5</div>
                 <svg
                   class="estrela2"

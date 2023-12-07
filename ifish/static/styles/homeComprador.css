@@ -54,6 +54,24 @@
   position: absolute;
   left: 0px;
   top: 710px;
+  cursor: pointer;
+  font-size: 0px;
+}
+.configt {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 0px;
+  top: 710px;
+  cursor: pointer;
+  font-size: 0px;
+  z-index: 100;
+  opacity: 0;
 }
 .estoque {
   background: #71ccff;
@@ -66,6 +84,22 @@
   position: absolute;
   left: 90px;
   top: 710px;
+  cursor: pointer;
+}
+.estoquet {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 90px;
+  top: 710px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
 }
 .pesquisa {
   background: #71ccff;
@@ -78,6 +112,22 @@
   position: absolute;
   left: 180px;
   top: 710px;
+  cursor: pointer;
+}
+.pesquisat {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 180px;
+  top: 710px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
 }
 .mapa {
   background: #71ccff;
@@ -426,6 +476,21 @@
   left: 48px;
   top: 299.65px;
 }
+.rectangle-162t {
+  background: #cde1ff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 48px;
+  top: 299.65px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
 .rectangle-132 {
   background: #cde1ff;
   border-radius: 15px;
@@ -437,6 +502,21 @@
   position: absolute;
   left: 49.01px;
   top: 158px;
+}
+.rectangle-132t {
+  background: #cde1ff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 49.01px;
+  top: 158px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
 }
 .rectangle-142 {
   background: #cde1ff;

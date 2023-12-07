@@ -20,7 +20,7 @@ def showInitial():
     return render_template("init.html")
 
 def showHomeComprador():
-    return render_template("homeComprador.html")
+    return render_template("homeComprador.html", user=current_user)
 
 def showCarrinho():
     return render_template("carrinho.html")
