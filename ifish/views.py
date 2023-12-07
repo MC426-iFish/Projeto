@@ -5,7 +5,6 @@ import json
 
 views = Blueprint('views', __name__)
 
-
 @views.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
@@ -19,6 +18,18 @@ def showsignUp():
 
 def showInitial():
     return render_template("init.html")
+
+def showHomeComprador():
+    return render_template("homeComprador.html")
+
+def showCarrinho():
+    return render_template("carrinho.html")
+
+def showHistoricoCompras():
+    return render_template("historicoCompras.html")
+
+def showBuscaComprador():
+    return render_template("buscaComprador.html")
 
 # @views.route()
 # def showHome():
