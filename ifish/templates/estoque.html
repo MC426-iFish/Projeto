@@ -39,11 +39,15 @@
             <div class="grupo-estoque">
             <div class="estoque-atual">Estoque atual</div>
             <div class="sardinha-10-pe-as-5-kg-atum-2-pe-as-3-kg-linguado-3-pe-as-8-kg">
-                Sardinha - 10 peças / 5Kg
-                <br />
-                Atum - 2 peças / 3 Kg
-                <br />
-                Linguado - 3 peças / 8 Kg
+                {% with fishes = fishes %}
+                {% if fishes %}
+                    <ul class="fishes">
+                    {% for fish in fishes %}
+                        <li>{{ fish.type }}, R$:{{fish.price}}, {{fish.quantity}} kg</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
             </div>
             </div>
             <div class="bloco-vendas">

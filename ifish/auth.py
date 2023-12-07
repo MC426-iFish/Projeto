@@ -96,7 +96,7 @@ def sign_up():
 @auth.route('/home', methods=['GET', 'POST'])
 def home():
     if request.method == "POST":
-        if request.form['redirect'] == 'Acessar estoque':
+        if request.form.get('acessStock') == 'Acessar':
             return redirect(url_for('auth.estoque'))
     return showHome()
 

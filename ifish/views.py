@@ -15,8 +15,9 @@ def showHome():
     return render_template("pescador.html", user=current_user, fishes = user_fish_inventory)
 
 def showStock():
-    return render_template("estoque.html")
-
+    current_user.add_fish('salmao', '2023-01-01', 5, 50)
+    user_fish_inventory = current_user.fishInventory  # Get the relationship object
+    return render_template("estoque.html", user=current_user, fishes = user_fish_inventory)
 
 def showLogin():
     return render_template("login.html")

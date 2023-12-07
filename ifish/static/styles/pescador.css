@@ -52,6 +52,11 @@
   justify-content: flex-start;
 }
 .rectangle-10 {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
   background: #d9d9d9;
   border-radius: 15px;
   border-style: solid;
@@ -62,6 +67,7 @@
   position: absolute;
   left: 220px;
   top: 171.66px;
+  cursor:pointer;
   z-index: 100;
 }
 .acessar {
@@ -78,6 +84,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  z-index: 200;
 }
 .bloco-vendas {
   position: absolute;
