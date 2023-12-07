@@ -83,9 +83,12 @@
   left: 12px;
   top: 195px;
   width: 308px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  
+  max-height: 120px; /* Set the maximum height for the list */
+  overflow-y: auto; /* Enable vertical scrollbar when content exceeds the height */
+  z-index: 100;
+  margin-top: 5px; /* Add margin to the top to prevent clipping */
+  
 }
 .bloco-vendas {
   position: absolute;
@@ -236,6 +239,7 @@
   
   z-index: 25;
 }
+
 .adicionar2t {
   color: #000000;
   text-align: left;
