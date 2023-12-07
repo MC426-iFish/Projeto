@@ -62,6 +62,7 @@
   position: absolute;
   left: 220px;
   top: 171.66px;
+  z-index: 100;
 }
 .acessar {
   color: #000000;
