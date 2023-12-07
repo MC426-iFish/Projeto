@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/estoque.css')}}">
+    </head>
+    <body>
+        <center>
+
+        <div class="estoque-pescador">
+            <div class="cabe-alho">
+            <div class="rectangle-7"></div>
+            <div class="caetano-4-8-5">
+                {{user.name}}
+                <br />
+                4,8/5
+            </div>
+            <div class="ellipse-9"></div>
+            <svg
+                class="star-solid-1"
+                width="24"
+                height="21"
+                viewBox="0 0 24 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g clip-path="url(#clip0_1922_34)">
+                <path
+                    d="M13.2042 0.738281C12.9833 0.287109 12.5167 0 12.0042 0C11.4917 0 11.0292 0.287109 10.8042 0.738281L8.125 6.16465L2.14167 7.03418C1.64167 7.10801 1.225 7.45254 1.07083 7.92422C0.916667 8.3959 1.04167 8.9168 1.4 9.26543L5.74167 13.4941L4.71667 19.4701C4.63333 19.9623 4.84167 20.4627 5.25417 20.7539C5.66667 21.0451 6.2125 21.082 6.6625 20.8482L12.0083 18.0387L17.3542 20.8482C17.8042 21.082 18.35 21.0492 18.7625 20.7539C19.175 20.4586 19.3833 19.9623 19.3 19.4701L18.2708 13.4941L22.6125 9.26543C22.9708 8.9168 23.1 8.3959 22.9417 7.92422C22.7833 7.45254 22.3708 7.10801 21.8708 7.03418L15.8833 6.16465L13.2042 0.738281Z"
+                    fill="black"
+                />
+                </g>
+                <defs>
+                <clipPath id="clip0_1922_34">
+                    <rect width="24" height="21" fill="white" />
+                </clipPath>
+                </defs>
+            </svg>
+            </div>
+            <div class="grupo-estoque">
+            <div class="estoque-atual">Estoque atual</div>
+            <div class="sardinha-10-pe-as-5-kg-atum-2-pe-as-3-kg-linguado-3-pe-as-8-kg">
+                {% with fishes = fishes %}
+                {% if fishes %}
+                    <ul class="fishes">
+                    {% for fish in fishes %}
+                        <li>{{ fish.type }}, R$:{{fish.price}}, {{fish.quantity}} kg</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
+            </div>
+            </div>
+            <div class="bloco-vendas">
+            <div class="rectangle-10"></div>
+            <div class="adicionar">Adicionar</div>
+            <svg
+                class="plus-solid-1"
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                d="M17.1429 4.6875C17.1429 3.65039 16.1853 2.8125 15 2.8125C13.8147 2.8125 12.8571 3.65039 12.8571 4.6875V13.125H3.21428C2.02902 13.125 1.07143 13.9629 1.07143 15C1.07143 16.0371 2.02902 16.875 3.21428 16.875H12.8571V25.3125C12.8571 26.3496 13.8147 27.1875 15 27.1875C16.1853 27.1875 17.1429 26.3496 17.1429 25.3125V16.875H26.7857C27.971 16.875 28.9286 16.0371 28.9286 15C28.9286 13.9629 27.971 13.125 26.7857 13.125H17.1429V4.6875Z"
+                fill="black"
+                />
+            </svg>
+        
+            <div class="remover">Remover</div>
+            <svg
+                class="minus-solid-1"
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                d="M28.9286 15C28.9286 16.0371 27.971 16.875 26.7857 16.875H3.21428C2.02902 16.875 1.07143 16.0371 1.07143 15C1.07143 13.9629 2.02902 13.125 3.21428 13.125H26.7857C27.971 13.125 28.9286 13.9629 28.9286 15Z"
+                fill="black"
+                />
+            </svg>
+            </div>
+            <svg
+            class="usu-rio"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <g clip-path="url(#clip0_1851_33)">
+                <path
+                d="M38.9648 37.5195C36.8066 33.7695 32.7539 31.25 28.125 31.25H21.875C17.2461 31.25 13.1934 33.7695 11.0352 37.5195C14.4727 41.3477 19.4531 43.75 25 43.75C30.5469 43.75 35.5273 41.3379 38.9648 37.5195ZM0 25C0 18.3696 2.63392 12.0107 7.32233 7.32233C12.0107 2.63392 18.3696 0 25 0C31.6304 0 37.9893 2.63392 42.6777 7.32233C47.3661 12.0107 50 18.3696 50 25C50 31.6304 47.3661 37.9893 42.6777 42.6777C37.9893 47.3661 31.6304 50 25 50C18.3696 50 12.0107 47.3661 7.32233 42.6777C2.63392 37.9893 0 31.6304 0 25ZM25 26.5625C26.8648 26.5625 28.6532 25.8217 29.9718 24.5031C31.2905 23.1845 32.0312 21.3961 32.0312 19.5312C32.0312 17.6664 31.2905 15.878 29.9718 14.5594C28.6532 13.2408 26.8648 12.5 25 12.5C23.1352 12.5 21.3468 13.2408 20.0282 14.5594C18.7095 15.878 17.9688 17.6664 17.9688 19.5312C17.9688 21.3961 18.7095 23.1845 20.0282 24.5031C21.3468 25.8217 23.1352 26.5625 25 26.5625Z"
+                fill="black"
+                />
+            </g>
+            <defs>
+                <clipPath id="clip0_1851_33">
+                <rect width="50" height="50" fill="white" />
+                </clipPath>
+            </defs>
+            </svg>
+        
+            <div class="rectangle-11"></div>
+            <div class="remover2">Remover</div>
+            
+            
+            <div class="checkbox">
+            <div class="group-47">
+                <div class="ellipse-1"></div>
+                <div class="sardinha-10-pe-as-5-kg">Sardinha - 10 peças / 5Kg</div>
+            </div>
+            </div>
+            <div class="checkbox2">
+            <div class="group-47">
+                <div class="ellipse-1"></div>
+                <div class="sardinha-10-pe-as-5-kg">Atum - 2 peças / 3 Kg</div>
+            </div>
+            </div>
+            <div class="checkbox3">
+            <div class="group-47">
+                <div class="ellipse-1"></div>
+                <div class="sardinha-10-pe-as-5-kg">Linguado - 3 peças / 8 Kg</div>
+            </div>
+            </div>
+            <svg
+            class="house-solid-1"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <g clip-path="url(#clip0_1858_107)">
+                <path
+                d="M49.9826 24.9512C49.9826 26.709 48.6806 28.0859 47.2049 28.0859H44.4271L44.4879 43.7305C44.4879 43.9941 44.4705 44.2578 44.4444 44.5215V46.0938C44.4444 48.252 42.8906 50 40.9722 50H39.5833C39.4879 50 39.3924 50 39.2969 49.9902C39.1754 50 39.0538 50 38.9323 50H36.1111H34.0278C32.1094 50 30.5556 48.252 30.5556 46.0938V43.75V37.5C30.5556 35.7715 29.3142 34.375 27.7778 34.375H22.2222C20.6858 34.375 19.4444 35.7715 19.4444 37.5V43.75V46.0938C19.4444 48.252 17.8906 50 15.9722 50H13.8889H11.1198C10.9896 50 10.8594 49.9902 10.7292 49.9805C10.625 49.9902 10.5208 50 10.4167 50H9.02778C7.10938 50 5.55556 48.252 5.55556 46.0938V35.1562C5.55556 35.0684 5.55556 34.9707 5.56424 34.8828V28.0859H2.77778C1.21528 28.0859 0 26.7188 0 24.9512C0 24.0723 0.260417 23.291 0.868056 22.6074L23.125 0.78125C23.7326 0.0976562 24.4271 0 25.0347 0C25.6424 0 26.3368 0.195312 26.8576 0.683594L49.0278 22.6074C49.7222 23.291 50.0694 24.0723 49.9826 24.9512Z"
+                fill="black"
+                />
+            </g>
+            <defs>
+                <clipPath id="clip0_1858_107">
+                <rect width="50" height="50" fill="white" />
+                </clipPath>
+            </defs>
+            </svg>
+        
+            
+            
+            <div class="adicionar">Adicionar</div>
+            <form action="#" method="POST">
+                <div>
+                    <input id="tipoPeixe" type="text" name="tipoPeixe" placeholder="Tipo" required  class="rectangle-68"/>
+                </div>
+                <div>
+                    <input id="quantidadePeixe" type="text" name="quantidadePeixe" placeholder="Peso em Kg" required  class="rectangle-69"/>
+                </div>
+                <div>
+                    <input id="precoPeixe" type="text" name="precoPeixe" placeholder="Preço por Kg" required  class="rectangle-70"/>
+                </div>
+                
+                <div class="rectangle-12">
+                    <div class="adicionar2">Adicionar</div>
+                </div>
+                
+                <input id="esstoqueSubmit" type="submit" name="estoqueSubmit" value="Adicionar" class="rectangle-12t"/>
+                
+                
+            
+            </form>
+            
+            
+            
+        </div>
+    </center>
+    </body>
+</html>   

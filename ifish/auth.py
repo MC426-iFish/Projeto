@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import UserBuyer, UserFisher, User
+from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   
 from flask_login import login_user, login_required, logout_user, current_user
 from .utils import signup_validator
-from .views import showLogin, showsignUp, showInitial, showHome
+from .views import showLogin, showsignUp, showInitial, showHome, showStock
 
 
 auth = Blueprint('auth', __name__)
@@ -15,7 +15,7 @@ def initial():
         if request.form['redirect'] == 'Fazer Login':
             return redirect(url_for('auth.login'))
         else:
-            return redirect(url_for('auth.signUp'))
+            return redirect(url_for('auth.sign_up'))
         
     return showInitial()
 
@@ -28,10 +28,12 @@ def login():
         userType = request.form.get('OPCAO')
 
         if userType == 'comprador':
-            user = UserBuyer.query.filter_by(email=userEmail).first()
+            user = User.query.filter_by(email=userEmail).first()
+            print("this is type:", type(user))
             user=user if user.user_type == 'comprador' else None
         else:
-            user = UserFisher.query.filter_by(email=userEmail).first()
+            user = User.query.filter_by(email=userEmail).first()
+            print("this is type:", type(user))
             user=user if user.user_type == 'pescador' else None
 
         if not user:
@@ -69,9 +71,9 @@ def sign_up():
         userType = request.form.get('OPCAO')
 
         if userType == 'comprador':
-            user = UserBuyer.query.filter_by(email=email).first()
+            user = User.query.filter_by(email=email).first()
         else:
-            user = UserFisher.query.filter_by(email=email).first()
+            user = User.query.filter_by(email=email).first()
 
 
         message, validation = signup_validator.validate(name, email, password, passwordCheck, user)
@@ -79,9 +81,9 @@ def sign_up():
             flash(message, category='error')    
         else:
             if userType == 'comprador':   #cria do tipo comprador
-                newUser = UserBuyer(name=name, email=email, password=password, userType=userType)
+                newUser = User(name=name, email=email, password=password, userType=userType)
             else:                         #cria do tipo pescador
-                newUser = UserFisher(name=name, email=email, password=password, userType=userType)
+                newUser = User(name=name, email=email, password=password, userType=userType)
         
             db.session.add(newUser)
             db.session.commit()
@@ -93,9 +95,21 @@ def sign_up():
 
 @auth.route('/home', methods=['GET', 'POST'])
 def home():
+    print("kevin")
+
+    if request.method == "POST":
+        print("kk")
+        if request.form['acessStock'] == 'Acessar':
+            return redirect(url_for("auth.estoque"))
         
     return showHome()
 
-# @auth.route('/user')
-# def home():
-#     return showHome()
+@auth.route('/estoque', methods=['GET', 'POST'])
+def estoque():
+    if request.method == 'POST' and request.form.get('estoqueSubmit') == 'Adicionar':
+        tipo = request.form.get('tipoPeixe')
+        qtd = request.form.get('quantidadePeixe')
+        preco = request.form.get('precoPeixe')
+        current_user.add_fish(tipo, '2023-10-23', int(qtd), int(preco))
+        qtd = 0
+    return showStock()
