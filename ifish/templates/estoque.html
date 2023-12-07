@@ -10,7 +10,7 @@
             <div class="cabe-alho">
             <div class="rectangle-7"></div>
             <div class="caetano-4-8-5">
-                Caetano
+                {{user.name}}
                 <br />
                 4,8/5
             </div>
@@ -105,10 +105,8 @@
         
             <div class="rectangle-11"></div>
             <div class="remover2">Remover</div>
-            <div class="rectangle-12"></div>
-            <div class="rectangle-71"></div>
-            <div class="adicionar2">Adicionar</div>
-            <div class="limpar">Limpar</div>
+            
+            
             <div class="checkbox">
             <div class="group-47">
                 <div class="ellipse-1"></div>
@@ -148,12 +146,32 @@
             </defs>
             </svg>
         
-            <div class="rectangle-68"></div>
-            <div class="rectangle-69"></div>
-            <div class="rectangle-70"></div>
-            <div class="tipo">Tipo</div>
-            <div class="quantidade">Quantidade</div>
-            <div class="peso">Peso</div>
+            
+            
+            <div class="adicionar">Adicionar</div>
+            <form action="#" method="POST">
+                <div>
+                    <input id="tipoPeixe" type="text" name="tipoPeixe" placeholder="Tipo" required  class="rectangle-68"/>
+                </div>
+                <div>
+                    <input id="quantidadePeixe" type="text" name="quantidadePeixe" placeholder="Peso em Kg" required  class="rectangle-69"/>
+                </div>
+                <div>
+                    <input id="precoPeixe" type="text" name="precoPeixe" placeholder="Preço por Kg" required  class="rectangle-70"/>
+                </div>
+                
+                <div class="rectangle-12">
+                    <div class="adicionar2">Adicionar</div>
+                </div>
+                
+                <input id="esstoqueSubmit" type="submit" name="estoqueSubmit" value="Adicionar" class="rectangle-12t"/>
+                
+                
+            
+            </form>
+            
+            
+            
         </div>
     </center>
     </body>
