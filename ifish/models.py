@@ -9,6 +9,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     user_type = db.Column(db.String(100))
+    purchasesHistory = db.Column(db.String(100))
+    fishInventory = db.relationship('Fish', backref='owner', lazy=True)
 
     def __init__(self, name, email, password, userType):
         self.name = name
@@ -16,13 +18,17 @@ class User(db.Model, UserMixin):
         self.password = password
         self.user_type = userType
 
+    def add_fish(self, type, fishDate, quantity, price):
+        pass
+
 class UserBuyer(User, db.Model, UserMixin):
-    purchasesHistory = db.Column(db.String(100))
+    
     def __init__(self, name, email, password, userType):
         super().__init__(name, email, password, userType)
+       
 
 class UserFisher(User, db.Model, UserMixin):
-    fishInventory = db.relationship('Fish', backref='owner', lazy=True)
+    
     def __init__(self, name, email, password, userType):
         super().__init__(name, email, password, userType)
 

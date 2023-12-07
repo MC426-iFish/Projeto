@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   
 from flask_login import login_user, login_required, logout_user, current_user
 from .utils import signup_validator
-from .views import showLogin, showsignUp, showInitial, showHome
+from .views import showLogin, showsignUp, showInitial, showHome, showStock
 
 
 auth = Blueprint('auth', __name__)
@@ -29,9 +29,11 @@ def login():
 
         if userType == 'comprador':
             user = UserBuyer.query.filter_by(email=userEmail).first()
+            print("this is type:", type(user))
             user=user if user.user_type == 'comprador' else None
         else:
             user = UserFisher.query.filter_by(email=userEmail).first()
+            print("this is type:", type(user))
             user=user if user.user_type == 'pescador' else None
 
         if not user:
@@ -93,8 +95,14 @@ def sign_up():
 
 @auth.route('/home', methods=['GET', 'POST'])
 def home():
-        
+    if request.method == "POST":
+        if request.form['redirect'] == 'Acessar estoque':
+            return redirect(url_for('auth.estoque'))
     return showHome()
+
+@auth.route('/estoque', methods=['GET', 'POST'])
+def estoque():
+    return showStock()
 
 # @auth.route('/user')
 # def home():
