@@ -25,6 +25,18 @@ def showsignUp():
 def showInitial():
     return render_template("init.html")
 
+def showHomeComprador():
+    return render_template("homeComprador.html", user=current_user)
+
+def showCarrinho():
+    return render_template("carrinho.html")
+
+def showHistoricoCompras():
+    return render_template("historicoCompras.html")
+
+def showBuscaComprador():
+    return render_template("buscaComprador.html")
+
 # @views.route()
 # def showHome():
 #     return render_template("user.html")
