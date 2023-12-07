@@ -8,8 +8,12 @@ views = Blueprint('views', __name__)
 
 @views.route('/home', methods=['GET', 'POST'])
 @login_required
-def home():
-    return render_template("user.html", user=current_user)
+def showHome():
+    
+
+    user_fish_inventory = current_user.fishInventory  # Get the relationship object
+
+    return render_template("pescador.html", user=current_user, fishes = user_fish_inventory)
 
 def showLogin():
     return render_template("login.html")

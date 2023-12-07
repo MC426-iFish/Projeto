@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   
 from flask_login import login_user, login_required, logout_user, current_user
 from .utils import signup_validator
-from .views import showLogin, showsignUp, showInitial
+from .views import showLogin, showsignUp, showInitial, showHome
 
 
 auth = Blueprint('auth', __name__)
@@ -32,7 +32,7 @@ def login():
             
         elif(userPassword == user.password):
             login_user(user, remember=True)
-            return redirect(url_for("views.home"))
+            return redirect(url_for("auth.home"))
         else:
             flash('Senha incorreta', category='error')
             
@@ -67,9 +67,14 @@ def sign_up():
             # session["userEmail"] = Email              
             login_user(newUser, remember=True)                    
             flash('Conta Criada com Sucesso!', category='sucess')
-            return redirect(url_for("views.home"))
+            return redirect(url_for("auth.home"))
         
     return showsignUp()
+
+@auth.route('/home', methods=['GET', 'POST'])
+def home():
+        
+    return showHome()
 
 # @auth.route('/user')
 # def home():
