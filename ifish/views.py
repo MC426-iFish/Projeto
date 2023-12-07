@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, jsonify
+from flask import Blueprint, render_template, request, flash, jsonify, redirect, url_for
 from flask_login import login_required, current_user
 from . import db
 import json
@@ -9,6 +9,11 @@ views = Blueprint('views', __name__)
 @views.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
+    if request.method == 'POST':
+        if request.form['alterar'] == 'alterar Senha':
+            return redirect(url_for('alterador.alterarSenha'))
+        else:
+            return redirect(url_for('alterador.alterarUser'))
     return render_template("user.html", user=current_user)
 
 def showLogin():
@@ -19,6 +24,12 @@ def showsignUp():
 
 def showInitial():
     return render_template("init.html")
+
+def showAlterarUser():
+    return render_template("alterarUser.html")
+
+def showAlterarSenha():
+    return render_template("alterarSenha.html")
 
 # @views.route()
 # def showHome():
