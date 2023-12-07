@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
         self.user_type = userType
 
     def search_fish(self, fish_type):
+        print(fish_type)
         if fish_type in [i.type for i in self.fishInventory]:
             return Fish.query.filter_by(type=fish_type).filter_by(user_id=self.id).first()
         return None
@@ -32,6 +33,15 @@ class User(db.Model, UserMixin):
             else:
                 self.fishInventory.append(new_fish)
                 db.session.add(new_fish)
+                db.session.commit()
+        else:
+            raise PermissionError("Shouldn't be allowed")
+    
+    def remove_fish(self, type):
+        if self.user_type == 'pescador':
+            fish_to_delete = self.search_fish(type)
+            if fish_to_delete is not None:
+                db.session.delete(fish_to_delete)  # Mark the fish object for deletion
                 db.session.commit()
         else:
             raise PermissionError("Shouldn't be allowed")

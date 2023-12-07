@@ -169,6 +169,21 @@
   left: 240px;
   top: 738px;
 }
+.rectangle-11t {
+  background: #ff5858;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 100px;
+  height: 39.31px;
+  position: absolute;
+  left: 240px;
+  top: 738px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
 .remover2 {
   color: #000000;
   text-align: left;
@@ -183,6 +198,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  z-index: 20;
 }
 .rectangle-12 {
   background: #59ff88;
@@ -314,6 +330,26 @@
   align-items: center;
   justify-content: flex-start;
 }
+.rbutton{
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  align-items: center;
+  left: 33px;
+  top: 637px;
+  width: 260px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+.no-bullets{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .checkbox2 {
   background: #ffffff;
   border-radius: 20px;

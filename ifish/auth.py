@@ -112,4 +112,9 @@ def estoque():
         preco = request.form.get('precoPeixe')
         current_user.add_fish(tipo, '2023-10-23', int(qtd), int(preco))
         qtd = 0
+
+    if request.method == 'POST' and request.form.get('removersubmit') == 'Remover':
+        fish_type = request.form.get('OPCAO')
+        current_user.remove_fish(fish_type)
+
     return showStock()
