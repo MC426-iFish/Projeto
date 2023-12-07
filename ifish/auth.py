@@ -15,7 +15,7 @@ def initial():
         if request.form['redirect'] == 'Fazer Login':
             return redirect(url_for('auth.login'))
         else:
-            return redirect(url_for('auth.signUp'))
+            return redirect(url_for('auth.sign_up'))
         
     return showInitial()
 
@@ -95,15 +95,15 @@ def sign_up():
 
 @auth.route('/home', methods=['GET', 'POST'])
 def home():
+    print("kevin")
+
     if request.method == "POST":
-        if request.form.get('acessStock') == 'Acessar':
-            return redirect(url_for('auth.estoque'))
+        print("kk")
+        if request.form['acessStock'] == 'Acessar':
+            return redirect(url_for("auth.estoque"))
+        
     return showHome()
 
 @auth.route('/estoque', methods=['GET', 'POST'])
 def estoque():
     return showStock()
-
-# @auth.route('/user')
-# def home():
-#     return showHome()

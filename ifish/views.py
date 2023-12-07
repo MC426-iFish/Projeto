@@ -5,9 +5,6 @@ import json
 
 views = Blueprint('views', __name__)
 
-
-@views.route('/home', methods=['GET', 'POST'])
-@login_required
 def showHome():
     
     user_fish_inventory = current_user.fishInventory  # Get the relationship object
