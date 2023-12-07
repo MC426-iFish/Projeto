@@ -312,3 +312,7 @@
   top: 532px;
   overflow: visible;
 }
+.radio-button {
+  position: relative;
+  top: 130px; /* Ajuste o valor conforme necessário */
+}
