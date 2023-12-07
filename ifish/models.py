@@ -3,31 +3,28 @@ from flask_login import UserMixin
 from sqlalchemy.sql import func
 
 
-# class Note(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     data = db.Column(db.String(10000))
-#     date = db.Column(db.DateTime(timezone=True), default=func.now())
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-
-# class User(db.Model, UserMixin):
-#     id = db.Column(db.Integer, primary_key=True)
-#     email = db.Column(db.String(150), unique=True)
-#     password = db.Column(db.String(150))
-#     first_name = db.Column(db.String(150))
-#     notes = db.relationship('Note')
-
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
-    fishInventory = db.relationship('Fish', backref='owner', lazy=True)
+    user_type = db.Column(db.String(100))
 
-    def __init__(self, name, email, password):
+    def __init__(self, name, email, password, userType):
         self.name = name
         self.email = email
         self.password = password
+        self.user_type = userType
+
+class UserBuyer(User, db.Model, UserMixin):
+    purchasesHistory = db.Column(db.String(100))
+    def __init__(self, name, email, password, userType):
+        super().__init__(name, email, password, userType)
+
+class UserFisher(User, db.Model, UserMixin):
+    fishInventory = db.relationship('Fish', backref='owner', lazy=True)
+    def __init__(self, name, email, password, userType):
+        super().__init__(name, email, password, userType)
 
     def add_fish(self, type, fishDate, quantity, price):
         new_fish = Fish(type=type, fishDate=fishDate, quantity=quantity, price=price)
@@ -49,4 +46,5 @@ class Fish(db.Model):
         self.fishDate = fishDate
         self.quantity = quantity
         self.price = price
+
 

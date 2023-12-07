@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
+from .models import UserBuyer, UserFisher, User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   
 from flask_login import login_user, login_required, logout_user, current_user
@@ -25,12 +25,23 @@ def login():
     if request.method == "POST" and 'loginEmail' in request.form:
         userEmail = request.form["loginEmail"]
         userPassword = request.form["loginPassword"]
-        # session["userEmail"] = userEmail
-        user = User.query.filter_by(email=userEmail).first()
+        userType = request.form.get('OPCAO')
+
+        if userType == 'comprador':
+            user = UserBuyer.query.filter_by(email=userEmail).first()
+            user=user if user.user_type == 'comprador' else None
+        else:
+            user = UserFisher.query.filter_by(email=userEmail).first()
+            user=user if user.user_type == 'pescador' else None
+
         if not user:
             flash('Usuario não existe', category='error')
             
-        elif(userPassword == user.password):
+        elif(userPassword == user.password):            
+            #redirecionar para a pagina de acordo com o tupo de usuario
+            # if userType == 'comprador':
+            # else:  
+
             login_user(user, remember=True)
             return redirect(url_for("auth.home"))
         else:
@@ -55,16 +66,25 @@ def sign_up():
         email = request.form.get('singUpEmail')
         password = request.form.get('signUpPassword')
         passwordCheck = request.form.get('signUpPasswordCheck')
-        user = User.query.filter_by(email=email).first()
+        userType = request.form.get('OPCAO')
+
+        if userType == 'comprador':
+            user = UserBuyer.query.filter_by(email=email).first()
+        else:
+            user = UserFisher.query.filter_by(email=email).first()
+
+
         message, validation = signup_validator.validate(name, email, password, passwordCheck, user)
         if not validation:
             flash(message, category='error')    
         else:
-            newUser = User(name=name, email=email, password=password)
+            if userType == 'comprador':   #cria do tipo comprador
+                newUser = UserBuyer(name=name, email=email, password=password, userType=userType)
+            else:                         #cria do tipo pescador
+                newUser = UserFisher(name=name, email=email, password=password, userType=userType)
+        
             db.session.add(newUser)
             db.session.commit()
-            Email = request.form["singUpEmail"]                           
-            # session["userEmail"] = Email              
             login_user(newUser, remember=True)                    
             flash('Conta Criada com Sucesso!', category='sucess')
             return redirect(url_for("auth.home"))
