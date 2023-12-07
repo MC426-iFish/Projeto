@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   
 from flask_login import login_user, login_required, logout_user, current_user
 from .utils import signup_validator
-from .views import showLogin, showsignUp, showInitial
+from .views import showLogin, showsignUp, showInitial, showHome, showStock
 
 
 auth = Blueprint('auth', __name__)
@@ -15,7 +15,7 @@ def initial():
         if request.form['redirect'] == 'Fazer Login':
             return redirect(url_for('auth.login'))
         else:
-            return redirect(url_for('auth.signUp'))
+            return redirect(url_for('auth.sign_up'))
         
     return showInitial()
 
@@ -25,14 +25,27 @@ def login():
     if request.method == "POST" and 'loginEmail' in request.form:
         userEmail = request.form["loginEmail"]
         userPassword = request.form["loginPassword"]
-        # session["userEmail"] = userEmail
-        user = User.query.filter_by(email=userEmail).first()
+        userType = request.form.get('OPCAO')
+
+        if userType == 'comprador':
+            user = User.query.filter_by(email=userEmail).first()
+            print("this is type:", type(user))
+            user=user if user.user_type == 'comprador' else None
+        else:
+            user = User.query.filter_by(email=userEmail).first()
+            print("this is type:", type(user))
+            user=user if user.user_type == 'pescador' else None
+
         if not user:
             flash('Usuario não existe', category='error')
             
-        elif(userPassword == user.password):
+        elif(userPassword == user.password):            
+            #redirecionar para a pagina de acordo com o tupo de usuario
+            # if userType == 'comprador':
+            # else:  
+
             login_user(user, remember=True)
-            return redirect(url_for("views.home"))
+            return redirect(url_for("auth.home"))
         else:
             flash('Senha incorreta', category='error')
             
@@ -55,22 +68,48 @@ def sign_up():
         email = request.form.get('singUpEmail')
         password = request.form.get('signUpPassword')
         passwordCheck = request.form.get('signUpPasswordCheck')
-        user = User.query.filter_by(email=email).first()
+        userType = request.form.get('OPCAO')
+
+        if userType == 'comprador':
+            user = User.query.filter_by(email=email).first()
+        else:
+            user = User.query.filter_by(email=email).first()
+
+
         message, validation = signup_validator.validate(name, email, password, passwordCheck, user)
         if not validation:
             flash(message, category='error')    
         else:
-            newUser = User(name=name, email=email, password=password)
+            if userType == 'comprador':   #cria do tipo comprador
+                newUser = User(name=name, email=email, password=password, userType=userType)
+            else:                         #cria do tipo pescador
+                newUser = User(name=name, email=email, password=password, userType=userType)
+        
             db.session.add(newUser)
             db.session.commit()
-            Email = request.form["singUpEmail"]                           
-            # session["userEmail"] = Email              
             login_user(newUser, remember=True)                    
             flash('Conta Criada com Sucesso!', category='sucess')
-            return redirect(url_for("views.home"))
+            return redirect(url_for("auth.home"))
         
     return showsignUp()
 
-# @auth.route('/user')
-# def home():
-#     return showHome()
+@auth.route('/home', methods=['GET', 'POST'])
+def home():
+    print("kevin")
+
+    if request.method == "POST":
+        print("kk")
+        if request.form['acessStock'] == 'Acessar':
+            return redirect(url_for("auth.estoque"))
+        
+    return showHome()
+
+@auth.route('/estoque', methods=['GET', 'POST'])
+def estoque():
+    if request.method == 'POST' and request.form.get('estoqueSubmit') == 'Adicionar':
+        tipo = request.form.get('tipoPeixe')
+        qtd = request.form.get('quantidadePeixe')
+        preco = request.form.get('precoPeixe')
+        current_user.add_fish(tipo, '2023-10-23', int(qtd), int(preco))
+        qtd = 0
+    return showStock()

@@ -1,0 +1,336 @@
+.pescador,
+.pescador * {
+  box-sizing: border-box;
+}
+.pescador {
+  background: rgba(113, 204, 255, 0.3);
+  width: 360px;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.grupo-estoque {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-11 {
+  background: #c6eaff;
+  width: 360px;
+  height: 280px;
+  position: absolute;
+  left: 0px;
+  top: 140px;
+}
+.estoque-atual {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  left: 20px;
+  top: 151.87px;
+  width: 180px;
+  height: 69.26px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sardinha-10-pe-as-5-kg-atum-2-pe-as-3-kg-linguado-3-pe-as-8-kg {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 15px;
+  top: 228.06px;
+  width: 274px;
+  height: 71.24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-10 {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 100px;
+  height: 29.68px;
+  position: absolute;
+  left: 220px;
+  top: 171.66px;
+  cursor:pointer;
+  z-index: 100;
+}
+.acessar {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 232px;
+  top: 174.63px;
+  width: 76px;
+  height: 23.75px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 200;
+}
+.bloco-vendas {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-102 {
+  background: #ffffff;
+  width: 360px;
+  height: 380px;
+  position: absolute;
+  left: 0px;
+  top: 420px;
+}
+._10-sardinhas-5-kg-19-4-23 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 58px;
+  top: 527.45px;
+  width: 276px;
+  height: 94.34px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.ltimas-vendas {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  left: 21px;
+  top: 435.72px;
+  width: 200px;
+  height: 91.72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-9 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 100px;
+  height: 39.31px;
+  position: absolute;
+  left: 220px;
+  top: 464.55px;
+}
+.acessar2 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 232px;
+  top: 468.48px;
+  width: 76px;
+  height: 31.45px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rodap-sele-es {
+  position: absolute;
+  inset: 0;
+}
+.config {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 0px;
+  top: 710px;
+}
+.estoque {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 90px;
+  top: 710px;
+}
+.pesquisa {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 180px;
+  top: 710px;
+}
+.mapa {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 270px;
+  top: 710px;
+}
+.mapa2 {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 290px;
+  top: 730px;
+  overflow: visible;
+}
+.lupa {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 200px;
+  top: 729px;
+  overflow: visible;
+}
+.box {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 110px;
+  top: 730px;
+  overflow: visible;
+}
+.gear {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 20px;
+  top: 730px;
+  overflow: visible;
+}
+.cabe-alho {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-7 {
+  background: #71ccff;
+  border-radius: 10px;
+  width: 360px;
+  height: 140px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.bom-dia-caetano {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  position: absolute;
+  left: 17px;
+  top: 13px;
+  width: 239px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.caetano-4-8-5 {
+  color: #000000;
+  text-align: right;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 184px;
+  top: 42px;
+  width: 92px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.usu-rio {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 290px;
+  top: 45px;
+  overflow: visible;
+}
+.ellipse-9 {
+  background: #ffffff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 195px;
+  top: 68px;
+}
+.star-solid-1 {
+  width: 24px;
+  height: 21px;
+  position: absolute;
+  left: 198px;
+  top: 72px;
+  overflow: visible;
+}
+.rectangle-73 {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 108px;
+  height: 31px;
+  position: absolute;
+  left: 17px;
+  top: 90px;
+}
+.avalia-es {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  left: 26px;
+  top: 91px;
+  width: 106px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
