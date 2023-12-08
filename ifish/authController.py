@@ -69,21 +69,14 @@ def sign_up():
         password = request.form.get('signUpPassword')
         passwordCheck = request.form.get('signUpPasswordCheck')
         userType = request.form.get('OPCAO')
-
-        if userType == 'comprador':
-            user = User.query.filter_by(email=email).first()
-        else:
-            user = User.query.filter_by(email=email).first()
-
+       
+        user = User.query.filter_by(email=email).first()
 
         message, validation = signup_validator.validate(name, email, password, passwordCheck, user)
         if not validation:
             flash(message, category='error')    
         else:
-            if userType == 'comprador':   #cria do tipo comprador
-                newUser = User(name=name, email=email, password=password, userType=userType)
-            else:                         #cria do tipo pescador
-                newUser = User(name=name, email=email, password=password, userType=userType)
+            newUser = User(name=name, email=email, password=password, userType=userType)
         
             db.session.add(newUser)
             db.session.commit()
@@ -95,10 +88,7 @@ def sign_up():
 
 @auth.route('/home', methods=['GET', 'POST'])
 def home():
-    print("kevin")
-
     if request.method == "POST":
-        print("kk")
         if request.form['acessStock'] == 'Acessar':
             return redirect(url_for("auth.estoque"))
         
