@@ -387,12 +387,14 @@
                     <div class="buscar-por-produto-nas-proximidades">
                       Buscar por produto nas proximidades
                     </div>
+                  </form>
+                  <form action="#" method="POST">
                     <div class="rectangle-62">
                       {% with fishes = fishes %}
                         {% if fishes %}
-                          <ul>
+                          <ul class="no-bullets">
                             {% for fish in fishes %}
-                              <li>{{fish.type}}, R${{fish.price}}/kg, {{fish.quantity}} kg<br><i>Pescador: {{fish.get_fish_owner().name.split()[0]}}</i></li>
+                              <li><INPUT TYPE="RADIO" NAME="OPCAO" VALUE={{fish.id}} required>{{fish.type}}, R${{fish.price}}/kg, {{fish.quantity}} kg<br><i>Pescador: {{fish.get_fish_owner().name.split()[0]}}</i></li>
                             {% endfor %}
                           </ul>
                         {% endif %}
@@ -418,7 +420,23 @@
                         </clipPath>
                       </defs>
                     </svg>
-                  </form>
+                  
+                  <div class="adicionar">Selecionar peso</div>
+                  
+                    <div>
+                        <input id="pesoPeixe" type="text" name="pesoPeixe" placeholder="Peso em Kg"  class="rectangle-68"/>
+                    </div>
+                    
+                    
+                    <div class="rectangle-12">
+                        <div class="adicionar2">Adicionar ao carrinho</div>
+                    </div>
+                    
+                    <input id="compraSubmit" type="submit" name="compraSubmit" value="Adicionar" class="rectangle-12t"/>
+                    
+                    
+                
+                </form>
                 </div>
             </div>              
         </center>

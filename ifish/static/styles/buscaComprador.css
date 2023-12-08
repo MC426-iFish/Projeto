@@ -18,6 +18,11 @@
   left: 0px;
   top: 1px;
 }
+.no-bullets{
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
 .boa-tarde-cl-ber {
   color: #000000;
   text-align: left;
@@ -448,7 +453,7 @@
   background: #fff9f9;
   border-radius: 15px;
   width: 310px;
-  height: 425px; 
+  height: 250px; 
   position: absolute;
   left: 25px;
   top: 350px;
@@ -494,4 +499,105 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+.adicionar {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  left: 22px;
+  top: 610px;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 75;
+}
+.adicionar2 {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  
+  top: 5px;  
+  left: 1px;
+  width: 200px;
+  height: 31px;
+  
+  z-index: 25;
+}
+.rectangle-68 {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-LightItalic", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  background: #d9d9d9;
+  width: 318px;
+  height: 25px;
+  position: absolute;
+  left: 22px;
+  top: 675px;
+}
+.rectangle-69 {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-LightItalic", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  background: #d9d9d9;
+  width: 318px;
+  height: 25px;
+  position: absolute;
+  left: 22px;
+  top: 454px;
+}
+.rectangle-70 {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-LightItalic", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic; 
+  background: #d9d9d9;
+  width: 318px;
+  height: 25px;
+  position: absolute;
+  left: 22px;
+  top: 492px;
+}
+.rectangle-12 {
+  background: #59ff88;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 210px;
+  height: 39.31px;
+  position: absolute;
+  left: 130px;
+  top: 725px;
+  z-index: 50;
+}
+.rectangle-12t {
+  background: #59ff88;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  position: absolute;
+  width: 210px;
+  height: 39.31px;
+  left: 130px;
+  top: 725px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
 }
