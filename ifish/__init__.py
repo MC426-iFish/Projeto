@@ -19,10 +19,12 @@ def create_app():
     from .views import views
     from .authController import auth
     from .compradorController import comprador
+    from .pescadorController import pescador
 
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(comprador, url_prefix='/')
+    app.register_blueprint(pescador, url_prefix='/')
 
     from .models import User
     
