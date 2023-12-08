@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   
 from flask_login import login_user, login_required, logout_user, current_user
 from .utils import signup_validator
-from .views import showLogin, showsignUp, showInitial, showHome, showStock
+from .views import showLogin, showsignUp, showInitial, showStock
 
 
 auth = Blueprint('auth', __name__)
@@ -39,13 +39,15 @@ def login():
         if not user:
             flash('Usuario não existe', category='error')
             
-        elif(userPassword == user.password):            
-            #redirecionar para a pagina de acordo com o tupo de usuario
-            # if userType == 'comprador':
-            # else:  
+        elif(userPassword == user.password):      
 
             login_user(user, remember=True)
-            return redirect(url_for("auth.home"))
+
+            if userType == 'comprador':
+                return redirect(url_for("comprador.homeComprador"))
+            elif userType == 'pescador':
+                return redirect(url_for("pescador.homePescador"))
+
         else:
             flash('Senha incorreta', category='error')
             
@@ -82,29 +84,13 @@ def sign_up():
             db.session.commit()
             login_user(newUser, remember=True)                    
             flash('Conta Criada com Sucesso!', category='sucess')
-            return redirect(url_for("auth.home"))
+
+            if newUser.user_type == 'comprador':
+                return redirect(url_for("comprador.homeComprador"))
+            elif newUser.user_type == 'pescador':
+                return redirect(url_for("pescador.homePescador"))
         
     return showsignUp()
 
-@auth.route('/home', methods=['GET', 'POST'])
-def home():
-    if request.method == "POST":
-        if request.form['acessStock'] == 'Acessar':
-            return redirect(url_for("auth.estoque"))
-        
-    return showHome()
 
-@auth.route('/estoque', methods=['GET', 'POST'])
-def estoque():
-    if request.method == 'POST' and request.form.get('estoqueSubmit') == 'Adicionar':
-        tipo = request.form.get('tipoPeixe')
-        qtd = request.form.get('quantidadePeixe')
-        preco = request.form.get('precoPeixe')
-        current_user.add_fish(tipo, '2023-10-23', int(qtd), int(preco))
-        qtd = 0
 
-    if request.method == 'POST' and request.form.get('removersubmit') == 'Remover':
-        fish_type = request.form.get('OPCAO')
-        current_user.remove_fish(fish_type)
-
-    return showStock()
