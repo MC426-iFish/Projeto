@@ -426,80 +426,37 @@
   width: 310px;
   height: 75.46px;
   position: absolute;
-  left: 15px;
+  left: 25px;
   top: 251.69px;
+}
+.rectangle-61t {
+  background: transparent;
+  border: transparent;
+  border-radius: 15px;
+  width: 235px;
+  height: 75.46px;
+  position: absolute;
+  left: 100px;
+  top: 251.69px;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  font-style: italic;
+  outline-width: 0;
 }
 .rectangle-62 {
   background: #fff9f9;
   border-radius: 15px;
   width: 310px;
-  height: 50.3px;
+  height: 425px; 
   position: absolute;
-  left: 20px;
-  top: 425px;
-}
-.salm-o {
-  color: #000000;
-  text-align: left;
+  left: 25px;
+  top: 350px;
   font-family: "Inter-Regular", sans-serif;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 400;
-  position: absolute;
-  left: 36px;
-  top: 434px;
-  width: 91px;
-  height: 31.19px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.rectangle-63 {
-  background: #fff9f9;
-  border-radius: 15px;
-  width: 310px;
-  height: 50.3px;
-  position: absolute;
-  left: 20px;
-  top: 490px;
-}
-.carapau {
-  color: #000000;
   text-align: left;
-  font-family: "Inter-Regular", sans-serif;
-  font-size: 26px;
-  font-weight: 400;
-  position: absolute;
-  left: 36px;
-  top: 499px;
-  width: 134px;
-  height: 31px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.rectangle-64 {
-  background: #fff9f9;
-  border-radius: 15px;
-  width: 310px;
-  height: 50.3px;
-  position: absolute;
-  left: 21px;
-  top: 555px;
-}
-.manjubinha {
-  color: #000000;
-  text-align: left;
-  font-family: "Inter-Regular", sans-serif;
-  font-size: 26px;
-  font-weight: 400;
-  position: absolute;
-  left: 37px;
-  top: 564px;
-  width: 168px;
-  height: 31px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  overflow-y: auto;
 }
 .buscar-por-produto-nas-proximidades {
   color: #000000;
@@ -521,7 +478,7 @@
   width: 50px;
   height: 50.3px;
   position: absolute;
-  left: 27px;
+  left: 37px;
   top: 263.76px;
   overflow: visible;
 }
