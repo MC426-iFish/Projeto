@@ -8,7 +8,7 @@ from flask_login import current_user
 pescador = Blueprint('pescador', __name__)
 
 @pescador.route('/homePescador', methods=['GET', 'POST'])
-def home():
+def homePescador():
     if request.method == "POST":
         if request.form['acessStock'] == 'Acessar':
             return redirect(url_for("auth.estoque"))
