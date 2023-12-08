@@ -5,14 +5,12 @@ import json
 
 views = Blueprint('views', __name__)
 
-# def showHome():
-    
-#     user_fish_inventory = current_user.fishInventory  # Get the relationship object
 
-#     return render_template("pescador.html", user=current_user, fishes = user_fish_inventory)
+def showHome():
+    user_fish_inventory = current_user.fishInventory  # Get the relationship object
+    return render_template("pescador.html", user=current_user, fishes = user_fish_inventory)
 
 def showStock():
-   
     user_fish_inventory = current_user.fishInventory  # Get the relationship object
     return render_template("estoque.html", user=current_user, fishes = user_fish_inventory)
 
@@ -34,8 +32,8 @@ def showCarrinho():
 def showHistoricoCompras():
     return render_template("historicoCompras.html")
 
-def showBuscaComprador():
-    return render_template("buscaComprador.html")
+def showBuscaComprador(fishes):
+    return render_template("buscaComprador.html", fishes=fishes)
 
 def showHomePescador():
     user_fish_inventory = current_user.fishInventory  # Get the relationship object

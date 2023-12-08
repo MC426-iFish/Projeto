@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
         self.password = password
         self.user_type = userType
 
-    def search_fish(self, fish_type):
+    def search_own_fish(self, fish_type):
         print(fish_type)
         if fish_type in [i.type for i in self.fishInventory]:
             return Fish.query.filter_by(type=fish_type).filter_by(user_id=self.id).first()
@@ -27,7 +27,7 @@ class User(db.Model, UserMixin):
     def add_fish(self, type, fishDate, quantity, price):
         if self.user_type == 'pescador':
             new_fish = Fish(type=type, fishDate=fishDate, quantity=quantity, price=price)
-            fish = self.search_fish(type)
+            fish = self.search_own_fish(type)
             if fish is not None:
                 fish.add_quantity(quantity)
             else:
@@ -39,12 +39,15 @@ class User(db.Model, UserMixin):
     
     def remove_fish(self, type):
         if self.user_type == 'pescador':
-            fish_to_delete = self.search_fish(type)
+            fish_to_delete = self.search_own_fish(type)
             if fish_to_delete is not None:
                 db.session.delete(fish_to_delete)  # Mark the fish object for deletion
                 db.session.commit()
         else:
             raise PermissionError("Shouldn't be allowed")
+        
+    def search_fish_buy(self, fish_type):
+        return Fish.query.filter_by(type=fish_type)
        
 class Fish(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -65,4 +68,5 @@ class Fish(db.Model):
             self.quantity += value
             db.session.commit()
 
-
+    def get_fish_owner(self):
+        return User.query.filter_by(id=self.user_id).first()
