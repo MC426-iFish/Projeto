@@ -40,7 +40,7 @@ def showBuscaComprador():
 def showHomePescador():
     user_fish_inventory = current_user.fishInventory  # Get the relationship object
 
-    return render_template("pescador.html", user=current_user, fishes = user_fish_inventory)
+    return render_template("homePescador.html", user=current_user, fishes = user_fish_inventory)
 
 # @views.route()
 # def showHome():

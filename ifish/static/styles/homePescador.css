@@ -183,6 +183,21 @@
   left: 90px;
   top: 710px;
 }
+.estoquet {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 90px;
+  top: 710px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
 .pesquisa {
   background: #71ccff;
   border-radius: 15px;

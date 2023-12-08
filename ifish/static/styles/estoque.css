@@ -378,6 +378,17 @@
   top: 45px;
   overflow: visible;
 }
+.house-solid-1t {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 27px;
+  top: 45px;
+  overflow: visible;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
 .rectangle-68 {
   color: rgba(0, 0, 0, 0.5);
   text-align: left;

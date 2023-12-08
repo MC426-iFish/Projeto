@@ -11,7 +11,7 @@ pescador = Blueprint('pescador', __name__)
 def homePescador():
     if request.method == "POST":
         if request.form['acessStock'] == 'Acessar':
-            return redirect(url_for("auth.estoque"))
+            return redirect(url_for("pescador.estoque"))
         
     return showHomePescador()
 
@@ -23,9 +23,10 @@ def estoque():
         preco = request.form.get('precoPeixe')
         current_user.add_fish(tipo, '2023-10-23', int(qtd), int(preco))
         qtd = 0
-
-    if request.method == 'POST' and request.form.get('removersubmit') == 'Remover':
+    elif request.method == 'POST' and request.form.get('removersubmit') == 'Remover':
         fish_type = request.form.get('OPCAO')
         current_user.remove_fish(fish_type)
+    elif request.method == 'POST' and request.form.get('redirect') == 'home':
+        return redirect(url_for("pescador.homePescador"))
 
     return showStock()
