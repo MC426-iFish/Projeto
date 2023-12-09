@@ -9,17 +9,21 @@ alterador = Blueprint('alterador', __name__)
 @alterador.route('/alterarUser', methods=["GET", "POST"])
 @login_required
 def alterarUser():
-    userName = request.form.get('Usuario')
-    current_user.name = userName
-    db.session.commit()
-    return showAlterarUser()
+    if request.method == "POST":
+        userName = request.form.get('Usuario')
+        current_user.name = userName
+        db.session.commit()
+        return redirect(url_for("views.home"))
+    return showAlterarUser()    
 
 @alterador.route('/alterarSenha', methods=["GET", "POST"])
 @login_required
 def alterarSenha():
-    userCurr = request.form.get("senha-atual")
-    userNew = request.form.get("nova-senha")
-    if userNew == request.form.get("confirmar-senha"):
-        current_user.password = userNew
-        db.session.commit()
-        return showAlterarSenha()
+    if request.method == "POST":
+     userCurr = request.form.get("senha-atual")
+     userNew = request.form.get("nova-senha")
+     if userNew == request.form.get("confirmar-senha"):
+         current_user.password = userNew
+         db.session.commit()
+         return redirect(url_for("views.home"))
+    return showAlterarSenha()
