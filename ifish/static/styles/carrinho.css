@@ -223,6 +223,18 @@
   left: 26px;
   top: 723px;
 }
+.rectangle-67t {
+  background: #50caff;
+  border-radius: 15px;
+  width: 302px;
+  height: 61px;
+  position: absolute;
+  left: 26px;
+  top: 723px;
+  z-index: 25;
+  opacity: 0;
+  cursor: pointer;
+}
 .total-r-47-85 {
   color: #000000;
   text-align: left;
@@ -255,9 +267,10 @@
   font-size: 26px;
   font-weight: 400;
   position: absolute;
-  left: 114px;
-  top: 738px;
+  left: 90px;
+  top: 15px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  z-index: 10;
 }

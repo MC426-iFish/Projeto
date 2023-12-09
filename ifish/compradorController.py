@@ -4,7 +4,6 @@ from .utils import signup_validator
 from .views import showHomeComprador, showCarrinho, showHistoricoCompras, showBuscaComprador
 from flask_login import current_user
 
-
 comprador = Blueprint('comprador', __name__)
 
 
@@ -22,14 +21,20 @@ def homeComprador():
 
 @comprador.route('/carrinho', methods=['GET', 'POST'])
 def carrinho():
+    
     if request.method == "POST":
-        if request.form['redirect'] == 'home':
+        if request.form.get('redirect') == 'home':
             return redirect(url_for('comprador.homeComprador'))
+        elif request.form.get('continuar') == 'Continuar':
+            print('here')
+            current_user.commit_last_transaction()
+
 
     return showCarrinho()
 
 @comprador.route('/historicoCompras', methods=['GET', 'POST'])
 def historicoCompras():
+    print("current cost:", current_user.add_transaction().cost)
     if request.method == "POST":
         if request.form['redirect'] == 'home':
             return redirect(url_for('comprador.homeComprador'))
@@ -45,5 +50,10 @@ def buscaComprador():
     elif request.method == "POST" and 'busca' in request.form:
         fish_type = request.form.get('busca')
         fishes = current_user.search_fish_buy(fish_type)
-             
+    elif request.method == "POST" and request.form.get('compraSubmit') == 'Adicionar':
+        chosen_fish = request.form.get('OPCAO')
+        peso = request.form.get('pesoPeixe')
+        current_user.add_transaction_fish(chosen_fish, int(peso))
+        
+
     return showBuscaComprador(fishes)

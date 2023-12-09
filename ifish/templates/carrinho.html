@@ -150,14 +150,20 @@
                 <img class="image-1" src="{{ url_for('static', filename='images/pix.png')}}"/>
                 <div class="pix">Pix</div>
                 <div class="trocar">Trocar</div>
-                <div class="rectangle-67"></div>
+                
                 <div class="total-r-47-85">
                   <span>
                     <span class="total-r-47-85-span">Total:</span>
-                    <span class="total-r-47-85-span2">R$ 47,85</span>
+                    <span class="total-r-47-85-span2">R$ {{user.get_active_transaction().cost}}</span>
                   </span>
                 </div>
-                <div class="continuar">Continuar</div>
+            <form action="#" method="POST">
+                <div class="rectangle-67">
+                  <div class="continuar">Continuar</div>
+              </div>
+              
+              <input id="continuar" type="submit" name="continuar" value="Continuar" class="rectangle-67t"/>
+            </form>    
             </div>              
         </center>
     </body>
