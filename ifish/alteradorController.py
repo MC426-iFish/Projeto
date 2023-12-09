@@ -8,10 +8,18 @@ alterador = Blueprint('alterador', __name__)
 
 @alterador.route('/alterarUser', methods=["GET", "POST"])
 @login_required
-def alterarUser():   
+def alterarUser():
+    userName = request.form.get('Usuario')
+    current_user.name = userName
+    db.session.commit()
     return showAlterarUser()
 
 @alterador.route('/alterarSenha', methods=["GET", "POST"])
 @login_required
 def alterarSenha():
-    return showAlterarSenha()
+    userCurr = request.form.get("senha-atual")
+    userNew = request.form.get("nova-senha")
+    if userNew == request.form.get("confirmar-senha"):
+        current_user.password = userNew
+        db.session.commit()
+        return showAlterarSenha()
