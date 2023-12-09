@@ -601,6 +601,20 @@
   height: 6.25%;
   overflow: visible;
 }
+.usu-rio2t {
+  height: auto;
+  position: absolute;
+  right: 8.06%;
+  left: 78.06%;
+  width: 13.89%;
+  bottom: 88.12%;
+  top: 5.62%;
+  height: 6.25%;
+  overflow: visible;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
 .rectangle-59 {
   background: #d9d9d9;
   border-radius: 13px;
