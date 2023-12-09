@@ -21,11 +21,14 @@ def homeComprador():
 
 @comprador.route('/carrinho', methods=['GET', 'POST'])
 def carrinho():
-    print(current_user.add_transaction())
-    print("current cost:", current_user.add_transaction().cost)
+    
     if request.method == "POST":
-        if request.form['redirect'] == 'home':
+        if request.form.get('redirect') == 'home':
             return redirect(url_for('comprador.homeComprador'))
+        elif request.form.get('continuar') == 'Continuar':
+            print('here')
+            current_user.commit_last_transaction()
+
 
     return showCarrinho()
 
@@ -50,7 +53,7 @@ def buscaComprador():
     elif request.method == "POST" and request.form.get('compraSubmit') == 'Adicionar':
         chosen_fish = request.form.get('OPCAO')
         peso = request.form.get('pesoPeixe')
-        created_transaction = current_user.add_transaction()
-        created_transaction.add_fish(chosen_fish, int(peso))
+        current_user.add_transaction_fish(chosen_fish, int(peso))
+        
 
     return showBuscaComprador(fishes)
