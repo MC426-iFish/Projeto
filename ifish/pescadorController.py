@@ -1,6 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
-from . import db   
+from flask import Blueprint, request, redirect, url_for
 from flask_login import current_user
 from .__init__ import getView
 

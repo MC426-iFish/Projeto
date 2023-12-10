@@ -1,8 +1,6 @@
 from . import db
 from flask_login import UserMixin
 from sqlalchemy import Boolean
-from sqlalchemy.sql import func
-
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -58,13 +56,9 @@ class User(db.Model, UserMixin):
         return new_cart
 
     def add_transaction_fish(self, fish_id, weight):
-    
         if self.lastTransactionFinished:
-            #add cart
-            
-            new_cart = self.add_cart()
-            #add fish to cart
-            new_cart.add_transaction(fish_id, weight, Fish.query.filter_by(id = fish_id).first().user_id)
+            new_cart = self.add_cart() #add cart
+            new_cart.add_transaction(fish_id, weight, Fish.query.filter_by(id = fish_id).first().user_id) #add fish to cart
             self.lastTransactionFinished = False
             db.session.commit()
         else:
@@ -90,7 +84,6 @@ class User(db.Model, UserMixin):
         return past_transactions
     
     def get_past_sell(self):
-        
         return Transaction.query.filter_by(fisher_id = self.id).all()
     
 class Fish(db.Model):
@@ -106,7 +99,6 @@ class Fish(db.Model):
         self.fishDate = fishDate
         self.quantity = quantity
         self.price = price
-        
     
     def add_quantity(self, value):
         if self.quantity > -value:
@@ -143,7 +135,6 @@ class Cart(db.Model):
 
     def get_transactions(self):
         return Transaction.query.filter(Transaction.cart_id == self.id).all()
-    
 
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -176,7 +167,3 @@ class Transaction(db.Model):
     
     def get_buyer_name(self):
         return User.query.filter_by(id = Cart.query.filter_by(id = self.cart_id).first().buyer_id).first().name
-            
-            
-
-

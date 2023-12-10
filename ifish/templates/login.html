@@ -2,6 +2,13 @@
     <head>
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/login.css')}}">
+        {% with messages=get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+            <div class='alert alert-{{category}} text-center alert-dismissible fade show m-auto'>
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endwith %}
     </head>
     <body>
         <center>

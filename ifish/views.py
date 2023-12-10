@@ -1,7 +1,4 @@
-from flask import Blueprint, render_template, request, flash, jsonify
-import json
-
-views = Blueprint('views', __name__)
+from flask import render_template
 
 class ViewsMeta(type):
     _instances = {}
@@ -13,9 +10,6 @@ class ViewsMeta(type):
         return cls._instances[cls]
 
 class Views(metaclass=ViewsMeta):
-    def showHome(self, current_user, user_fish_inventory):
-        user_fish_inventory = current_user.fishInventory  # Get the relationship object
-        return render_template("pescador.html", user=current_user, fishes = user_fish_inventory)
 
     def showStock(self, current_user):
         user_fish_inventory = current_user.fishInventory  # Get the relationship object
@@ -51,19 +45,3 @@ class Views(metaclass=ViewsMeta):
 
     def showPerfilPescador(self, user):
         return render_template("perfilPescador.html", user=user)
-
-# @views.route()
-# def showHome():
-#     return render_template("user.html")
-
-# @views.route('/delete-note', methods=['POST'])
-# def delete_note():  
-#     note = json.loads(request.data) # this function expects a JSON from the INDEX.js file 
-#     noteId = note['noteId']
-#     note = Note.query.get(noteId)
-#     if note:
-#         if note.user_id == current_user.id:
-#             db.session.delete(note)
-#             db.session.commit()
-
-#     return jsonify({})

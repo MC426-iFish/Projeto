@@ -1,6 +1,3 @@
-# from ifish import *
-# from .utils import *
-
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
@@ -12,19 +9,16 @@ DB_NAME = "MC426.db"
 
 view = Views()
 
-
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'MC426ifish'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
-    from .views import views
     from .authController import auth
     from .compradorController import comprador
     from .pescadorController import pescador
 
-    app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(comprador, url_prefix='/')
     app.register_blueprint(pescador, url_prefix='/')
@@ -48,7 +42,6 @@ def create_app():
 def create_database(app):
     if not path.exists('website/' + DB_NAME):
         db.create_all(app=app)
-        print('Created Database!')
 
 def getView():
     return view
