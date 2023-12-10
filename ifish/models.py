@@ -82,7 +82,19 @@ class User(db.Model, UserMixin):
         if not self.lastTransactionFinished:
             return Cart.query.filter_by(buyer_id=self.id).filter_by(paid = False).first()
         return None   
-       
+    
+    def get_past_transactions(self):
+        past_transactions = []
+        for i in Cart.query.filter_by(buyer_id = self.id).all():
+            past_transactions.extend(Transaction.query.filter_by(cart_id = i.id).all())
+        return past_transactions
+    
+    def get_past_sell(self):
+        past_transactions = []
+        for i in Cart.query.filter_by(fisher_id = self.id).all():
+            past_transactions.extend(Transaction.query.filter_by(cart_id = i.id).all())
+        return past_transactions
+    
 class Fish(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String(100))

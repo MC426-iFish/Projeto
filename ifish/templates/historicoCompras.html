@@ -84,39 +84,24 @@
                   <div class="rectangle-64"></div>
                   <div class="tobaro-pescados-27-04-2023-19-14-1-kg-salm-o-r-48-75">
                     <span>
-                      <span class="tobaro-pescados-27-04-2023-19-14-1-kg-salm-o-r-48-75-span">
-                        Tobaro Pescados
-                        <br />
-                      </span>
+                      
                       <span
                         class="tobaro-pescados-27-04-2023-19-14-1-kg-salm-o-r-48-75-span2"
                       >
-                        27/04/2023 - 19:14
-                        <br />
-                        1 Kg Salmão - R$ 48,75
+                          {% with transactions = transactions %}
+                          {% if transactions %}
+                            <ul class="transactions">
+                            {% for transaction in transactions %}
+                              <li>{{ transaction.get_fish_type() }}, {{transaction.weight}} kg, R$:{{transaction.compute_cost()}}, pescador : {{transaction.get_fisher_name()}}</li>
+                            {% endfor %}
+                            </ul>
+                          {% endif %}
+                        {% endwith %}
                       </span>
                     </span>
                   </div>
                   <div class="rectangle-65"></div>
-                  <div class="josias-nascimento-23-04-2023-18-32-0-5-kg-camar-o-r-33-75">
-                    <span>
-                      <span
-                        class="josias-nascimento-23-04-2023-18-32-0-5-kg-camar-o-r-33-75-span"
-                      >
-                        Josias Nascimento
-                        <br />
-                      </span>
-                      <span
-                        class="josias-nascimento-23-04-2023-18-32-0-5-kg-camar-o-r-33-75-span2"
-                      >
-                        23/04/2023 - 18:32
-                        <br />
-                        0,5 Kg Camarão -
-                        <br />
-                        R$ 33,75
-                      </span>
-                    </span>
-                  </div>
+                  
                   <div class="ltimas-compras">Últimas compras</div>
                 </div>
             </div>              

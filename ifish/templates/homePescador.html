@@ -30,11 +30,15 @@
         <div class="bloco-vendas">
         <div class="rectangle-102"></div>
         <div class="_10-sardinhas-5-kg-19-4-23">
-            10 sardinhas - 5 Kg - 19/4/23
-            <br />
-            -- - - - - - - -
-            <br />
-            -- - -- - -- - -
+            {% with transactions = transactions %}
+                {% if transactions %}
+                <ul class="transactions">
+                {% for transaction in transactions %}
+                    <li>{{ transaction.get_fish_type() }}, {{transaction.weight}} kg, R$:{{transaction.compute_cost()}}, pescador : {{transaction.get_fisher_name()}}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
         </div>
         <div class="ltimas-vendas">Últimas vendas</div>
         <div class="rectangle-9"></div>
