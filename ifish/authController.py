@@ -4,10 +4,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   
 from flask_login import login_user, login_required, logout_user, current_user
 from .utils import signup_validator
-from .views import showLogin, showsignUp, showInitial, showStock
+from .__init__ import getView
 
 
 auth = Blueprint('auth', __name__)
+view = getView()
+
 
 @auth.route('/', methods=['GET', 'POST'])
 def initial():
@@ -17,7 +19,7 @@ def initial():
         else:
             return redirect(url_for('auth.sign_up'))
         
-    return showInitial()
+    return view.showInitial()
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -53,7 +55,7 @@ def login():
             
     
 
-    return showLogin()
+    return view.showLogin()
 
 
 @auth.route('/logout', methods=["GET", "POST"])
@@ -90,7 +92,7 @@ def sign_up():
             elif newUser.user_type == 'pescador':
                 return redirect(url_for("pescador.homePescador"))
         
-    return showsignUp()
+    return view.showsignUp()
 
 
 

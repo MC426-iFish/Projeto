@@ -1,10 +1,12 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db   
 from .utils import signup_validator
-from .views import showHomeComprador, showCarrinho, showHistoricoCompras, showBuscaComprador, showPerfilComprador
 from flask_login import current_user
+from .__init__ import getView
+
 
 comprador = Blueprint('comprador', __name__)
+view = getView()
 
 
 @comprador.route('/homeComprador', methods=['GET', 'POST'])
@@ -19,7 +21,7 @@ def homeComprador():
         elif request.form['redirect'] == 'perfil':
             return redirect(url_for('comprador.perfilComprador'))
 
-    return showHomeComprador()
+    return view.showHomeComprador(current_user)
 
 @comprador.route('/carrinho', methods=['GET', 'POST'])
 def carrinho():
@@ -32,7 +34,7 @@ def carrinho():
             current_user.commit_last_transaction()
 
 
-    return showCarrinho(cart = current_user.get_active_transaction())
+    return view.showCarrinho(current_user, cart = current_user.get_active_transaction())
 
 @comprador.route('/historicoCompras', methods=['GET', 'POST'])
 def historicoCompras():
@@ -40,7 +42,7 @@ def historicoCompras():
         if request.form['redirect'] == 'home':
             return redirect(url_for('comprador.homeComprador'))
 
-    return showHistoricoCompras()
+    return view.showHistoricoCompras(current_user)
 
 @comprador.route('/buscaComprador', methods=['GET', 'POST'])
 def buscaComprador():
@@ -57,7 +59,7 @@ def buscaComprador():
         current_user.add_transaction_fish(chosen_fish, int(peso))
         
 
-    return showBuscaComprador(fishes)
+    return view.showBuscaComprador(fishes)
 
 @comprador.route('/perfilComprador', methods=['GET', 'POST'])
 def perfilComprador():   
@@ -66,4 +68,4 @@ def perfilComprador():
         if request.form['redirect'] == 'home':
             return redirect(url_for('comprador.homeComprador'))
 
-    return showPerfilComprador(user)
+    return view.showPerfilComprador(user)
