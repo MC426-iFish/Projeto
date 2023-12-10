@@ -36,7 +36,6 @@ def carrinho():
 
 @comprador.route('/historicoCompras', methods=['GET', 'POST'])
 def historicoCompras():
-    print("current cost:", current_user.add_transaction().cost)
     if request.method == "POST":
         if request.form['redirect'] == 'home':
             return redirect(url_for('comprador.homeComprador'))

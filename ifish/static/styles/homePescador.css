@@ -105,13 +105,14 @@
   font-size: 20px;
   font-weight: 400;
   position: absolute;
-  left: 58px;
+  left: 15px;
   top: 527.45px;
   width: 276px;
-  height: 94.34px;
+  height: 200px;
   display: flex;
-  align-items: center;
+  align-items: top;
   justify-content: flex-start;
+  overflow-y: auto;
 }
 .ltimas-vendas {
   color: #000000;
