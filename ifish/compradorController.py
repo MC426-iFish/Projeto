@@ -61,9 +61,10 @@ def buscaComprador():
     return showBuscaComprador(fishes)
 
 @comprador.route('/perfilComprador', methods=['GET', 'POST'])
-def perfilComprador():        
+def perfilComprador():   
+    user = current_user     
     if request.method == "POST":
         if request.form['redirect'] == 'home':
             return redirect(url_for('comprador.homeComprador'))
 
-    return showPerfilComprador()
+    return showPerfilComprador(user)

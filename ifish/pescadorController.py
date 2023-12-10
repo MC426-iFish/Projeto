@@ -1,17 +1,18 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
 from . import db   
-from .views import showHomePescador, showStock
+from .views import showHomePescador, showStock, showPerfilPescador
 from flask_login import current_user
-
 
 pescador = Blueprint('pescador', __name__)
 
 @pescador.route('/homePescador', methods=['GET', 'POST'])
 def homePescador():
     if request.method == "POST":
-        if request.form['acessStock'] == 'Acessar':
+        if request.form['redirect'] == 'estoque':
             return redirect(url_for("pescador.estoque"))
+        if request.form['redirect'] == 'perfil':
+            return redirect(url_for("pescador.perfilPescador"))
         
     return showHomePescador()
 
@@ -30,3 +31,12 @@ def estoque():
         return redirect(url_for("pescador.homePescador"))
 
     return showStock()
+
+@pescador.route('/perfilPescador', methods=['GET', 'POST'])
+def perfilPescador():
+    user = current_user
+    if request.method == "POST":
+        if request.form['redirect'] == 'home':
+            return redirect(url_for("pescador.homePescador"))
+        
+    return showPerfilPescador(user)
