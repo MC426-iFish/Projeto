@@ -1,0 +1,276 @@
+.tela-user-pescador,
+.tela-user-pescador * {
+  box-sizing: border-box;
+}
+.tela-user-pescador {
+  background: #ffffff;
+  width: 360px;
+  height: 799px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-8 {
+  background: #71ccff;
+  border-radius: 10px;
+  width: 360px;
+  height: 140px;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+}
+.boa-tarde-cl-ber {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  position: absolute;
+  left: 114px;
+  top: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.settings {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 27px;
+  top: 46px;
+  overflow: visible;
+}
+.usu-rio {
+  height: auto;
+  position: absolute;
+  right: 8.06%;
+  left: 78.06%;
+  width: 13.89%;
+  bottom: 88.13%;
+  top: 5.62%;
+  height: 6.25%;
+  overflow: visible;
+}
+.rectangle-9 {
+  background: #71ccff;
+  border-radius: 10px;
+  width: 360px;
+  height: 140px;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+}
+.perfil {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Thin", sans-serif;
+  font-size: 48px;
+  font-weight: 100;
+  position: absolute;
+  left: 104px;
+  top: 5px;
+  width: 256px;
+  height: 136px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.house-solid-1 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 27px;
+  top: 45px;
+  overflow: visible;
+}
+.house-solid-1t {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 27px;
+    top: 45px;
+    overflow: visible;
+    z-index: 100;
+    opacity: 0;
+    cursor: pointer;
+  }
+.vector4 {
+  height: auto;
+  position: absolute;
+  right: 55.56%;
+  left: 30.56%;
+  width: 13.89%;
+  bottom: 2.5%;
+  top: 91.25%;
+  height: 6.25%;
+  overflow: visible;
+}
+.search {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-60 {
+  background: #d9d9d9;
+  width: 360px;
+  height: 663px;
+  position: absolute;
+  left: 0px;
+  top: 137px;
+}
+.rectangle-63 {
+  background: #fff9f9;
+  border-radius: 15px;
+  width: 310px;
+  height: 136px;
+  position: absolute;
+  left: 25px;
+  top: 162px;
+}
+.rectangle-64 {
+  background: #fff9f9;
+  border-radius: 15px;
+  width: 310px;
+  height: 136px;
+  position: absolute;
+  left: 25px;
+  top: 319px;
+}
+.rectangle-65 {
+  background: #fff9f9;
+  border-radius: 15px;
+  width: 310px;
+  height: 70px;
+  position: absolute;
+  left: 25px;
+  top: 476px;
+}
+.vector5 {
+  height: auto;
+  position: absolute;
+  right: 33.06%;
+  left: 61.39%;
+  width: 5.56%;
+  bottom: 50.06%;
+  top: 47.43%;
+  height: 2.5%;
+  overflow: visible;
+}
+.nome-de-usu-rio {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-ExtraLightItalic", sans-serif;
+  font-size: 26px;
+  font-weight: 200;
+  font-style: italic;
+  position: absolute;
+  left: 25px;
+  top: 180px;
+  width: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nota-de-avalia-o {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-ExtraLightItalic", sans-serif;
+  font-size: 26px;
+  font-weight: 200;
+  font-style: italic;
+  position: absolute;
+  left: 25px;
+  top: 337px;
+  width: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rodrigo-zuiani {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  position: absolute;
+  left: 25px;
+  top: 217px;
+  width: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+._4-8-5 {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  position: absolute;
+  left: 25px;
+  top: 374px;
+  width: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trocar {
+    color: #1976d2;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    position: absolute;
+    left: 134px;
+    top: 253px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 100;
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+}
+.trocar:hover {
+    text-decoration: underline;
+}
+.mais-detalhes {
+    color: #1976d2;
+    text-align: center;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    position: absolute;
+    left: 90px;
+    top: 410px;
+    width: 181px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+}
+.mais-detalhes:hover {
+    text-decoration: underline;
+}
+.alterar-senha {
+    color: #d2192f;
+    text-align: center;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    position: absolute;
+    left: 93px;
+    top: 494px;
+    width: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+}
+.alterar-senha:hover {
+    text-decoration: underline;
+}

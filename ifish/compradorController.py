@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db   
 from .utils import signup_validator
-from .views import showHomeComprador, showCarrinho, showHistoricoCompras, showBuscaComprador
+from .views import showHomeComprador, showCarrinho, showHistoricoCompras, showBuscaComprador, showPerfilComprador
 from flask_login import current_user
 
 comprador = Blueprint('comprador', __name__)
@@ -16,6 +16,8 @@ def homeComprador():
             return redirect(url_for('comprador.historicoCompras'))
         elif request.form['redirect'] == 'busca':
             return redirect(url_for('comprador.buscaComprador'))
+        elif request.form['redirect'] == 'perfil':
+            return redirect(url_for('comprador.perfilComprador'))
 
     return showHomeComprador()
 
@@ -57,3 +59,12 @@ def buscaComprador():
         
 
     return showBuscaComprador(fishes)
+
+@comprador.route('/perfilComprador', methods=['GET', 'POST'])
+def perfilComprador():   
+    user = current_user     
+    if request.method == "POST":
+        if request.form['redirect'] == 'home':
+            return redirect(url_for('comprador.homeComprador'))
+
+    return showPerfilComprador(user)
