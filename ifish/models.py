@@ -90,10 +90,8 @@ class User(db.Model, UserMixin):
         return past_transactions
     
     def get_past_sell(self):
-        past_transactions = []
-        for i in Cart.query.filter_by(fisher_id = self.id).all():
-            past_transactions.extend(Transaction.query.filter_by(cart_id = i.id).all())
-        return past_transactions
+        
+        return Transaction.query.filter_by(fisher_id = self.id).all()
     
 class Fish(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -175,6 +173,9 @@ class Transaction(db.Model):
 
     def get_fisher_name(self):
         return User.query.filter_by(id = self.fisher_id).first().name
+    
+    def get_buyer_name(self):
+        return User.query.filter_by(id = Cart.query.filter_by(id = self.cart_id).first().buyer_id).first().name
             
             
 

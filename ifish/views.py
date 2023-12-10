@@ -37,7 +37,7 @@ def showBuscaComprador(fishes):
 
 def showHomePescador():
     user_fish_inventory = current_user.fishInventory  # Get the relationship object
-    return render_template("homePescador.html", user=current_user, fishes = user_fish_inventory)
+    return render_template("homePescador.html", user=current_user, fishes = user_fish_inventory, transactions = current_user.get_past_sell())
 
 def showPerfilComprador(user):
     return render_template("perfilComprador.html", user=user)
