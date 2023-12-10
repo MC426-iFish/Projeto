@@ -1,15 +1,13 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, request, flash, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db   
-from flask_login import login_user, login_required, logout_user, current_user
+from . import db
+from flask_login import login_user, login_required, logout_user
 from .utils import signup_validator
 from .__init__ import getView
 
-
 auth = Blueprint('auth', __name__)
 view = getView()
-
 
 @auth.route('/', methods=['GET', 'POST'])
 def initial():
@@ -18,9 +16,8 @@ def initial():
             return redirect(url_for('auth.login'))
         else:
             return redirect(url_for('auth.sign_up'))
-        
-    return view.showInitial()
 
+    return view.showInitial()
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -28,42 +25,41 @@ def login():
         userEmail = request.form["loginEmail"]
         userPassword = request.form["loginPassword"]
         userType = request.form.get('OPCAO')
-
-        if userType == 'comprador':
-            user = User.query.filter_by(email=userEmail).first()
-            print("this is type:", type(user))
-            user=user if user.user_type == 'comprador' else None
-        else:
-            user = User.query.filter_by(email=userEmail).first()
-            print("this is type:", type(user))
-            user=user if user.user_type == 'pescador' else None
-
-        if not user:
-            flash('Usuario não existe', category='error')
+        user = User.query.filter_by(email=userEmail).first()
+        if checkUserExists(user):
+            if checkCorrectUserType(user, userType):
+                return loginAuth(user, userPassword)
             
-        elif(userPassword == user.password):      
-
-            login_user(user, remember=True)
-
-            if userType == 'comprador':
-                return redirect(url_for("comprador.homeComprador"))
-            elif userType == 'pescador':
-                return redirect(url_for("pescador.homePescador"))
-
-        else:
-            flash('Senha incorreta', category='error')
-            
-    
-
     return view.showLogin()
 
+def checkUserExists(user):
+    if not user:
+        flash('Usuario não existe', category='error')
+        return False
+    return True
+
+def checkCorrectUserType(user, userType):
+    if user.user_type != userType:
+        flash('Tipo de usuário incorreto', category='error')
+        return False
+    return True
+
+def loginAuth(user, userPassword):
+    if(userPassword == user.password):
+        login_user(user, remember=True)
+        if user.user_type == "comprador":
+            return redirect(url_for("comprador.homeComprador"))
+        else:
+            return redirect(url_for("pescador.homePescador"))
+    else:
+        flash('Senha incorreta', category='error')
+        return view.showLogin()
 
 @auth.route('/logout', methods=["GET", "POST"])
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
-
 
 @auth.route('/signUp', methods=['GET', 'POST'])
 def sign_up():
@@ -73,26 +69,22 @@ def sign_up():
         password = request.form.get('signUpPassword')
         passwordCheck = request.form.get('signUpPasswordCheck')
         userType = request.form.get('OPCAO')
-       
         user = User.query.filter_by(email=email).first()
-
         message, validation = signup_validator.validate(name, email, password, passwordCheck, user)
         if not validation:
             flash(message, category='error')    
         else:
-            newUser = User(name=name, email=email, password=password, userType=userType)
-        
-            db.session.add(newUser)
-            db.session.commit()
-            login_user(newUser, remember=True)                    
-            flash('Conta Criada com Sucesso!', category='sucess')
-
-            if newUser.user_type == 'comprador':
-                return redirect(url_for("comprador.homeComprador"))
-            elif newUser.user_type == 'pescador':
-                return redirect(url_for("pescador.homePescador"))
+            return createAndLoginUser(name, email, password, userType)
         
     return view.showsignUp()
 
-
-
+def createAndLoginUser(name, email, password, userType):
+    newUser = User(name=name, email=email, password=password, userType=userType)
+    db.session.add(newUser)
+    db.session.commit()
+    login_user(newUser, remember=True)                    
+    flash('Conta Criada com Sucesso!', category='sucess')
+    if newUser.user_type == 'comprador':
+        return redirect(url_for("comprador.homeComprador"))
+    elif newUser.user_type == 'pescador':
+        return redirect(url_for("pescador.homePescador"))
