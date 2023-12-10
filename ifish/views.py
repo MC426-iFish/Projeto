@@ -1,49 +1,56 @@
 from flask import Blueprint, render_template, request, flash, jsonify
-from flask_login import login_required, current_user
-from . import db
 import json
 
 views = Blueprint('views', __name__)
 
+class ViewsMeta(type):
+    _instances = {}
 
-def showHome():
-    user_fish_inventory = current_user.fishInventory  # Get the relationship object
-    return render_template("pescador.html", user=current_user, fishes = user_fish_inventory)
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            instance = super().__call__(*args, **kwargs)
+            cls._instances[cls] = instance
+        return cls._instances[cls]
 
-def showStock():
-    user_fish_inventory = current_user.fishInventory  # Get the relationship object
-    return render_template("estoque.html", user=current_user, fishes = user_fish_inventory)
+class Views(metaclass=ViewsMeta):
+    def showHome(self, current_user, user_fish_inventory):
+        user_fish_inventory = current_user.fishInventory  # Get the relationship object
+        return render_template("pescador.html", user=current_user, fishes = user_fish_inventory)
 
-def showLogin():
-    return render_template("login.html")
+    def showStock(self, current_user):
+        user_fish_inventory = current_user.fishInventory  # Get the relationship object
+        return render_template("estoque.html", user=current_user, fishes = user_fish_inventory)
 
-def showsignUp():
-    return render_template("signUp.html")
+    def showLogin(self):
+        return render_template("login.html")
 
-def showInitial():
-    return render_template("init.html")
+    def showsignUp(self):
+        return render_template("signUp.html")
 
-def showHomeComprador():
-    return render_template("homeComprador.html", user=current_user)
+    def showInitial(self):
+        return render_template("init.html")
 
-def showCarrinho(cart):
-    return render_template("carrinho.html", user = current_user, transactions = cart.get_transactions() if cart is not None else None)
+    def showHomeComprador(self, current_user):
+        return render_template("homeComprador.html", user=current_user)
 
-def showHistoricoCompras():
-    return render_template("historicoCompras.html", transactions = current_user.get_past_transactions())
+    def showCarrinho(self, current_user, cart):
+        return render_template("carrinho.html", user = current_user, transactions = cart.get_transactions() if cart is not None else None)
 
-def showBuscaComprador(fishes):
-    return render_template("buscaComprador.html", fishes=fishes)
+    def showHistoricoCompras(self, current_user):
+        return render_template("historicoCompras.html", transactions = current_user.get_past_transactions())
 
-def showHomePescador():
-    user_fish_inventory = current_user.fishInventory  # Get the relationship object
-    return render_template("homePescador.html", user=current_user, fishes = user_fish_inventory, transactions = current_user.get_past_sell())
+    def showBuscaComprador(self, fishes):
+        return render_template("buscaComprador.html", fishes=fishes)
 
-def showPerfilComprador(user):
-    return render_template("perfilComprador.html", user=user)
+    def showHomePescador(self, current_user):
+        user_fish_inventory = current_user.fishInventory  # Get the relationship object
+        return render_template("homePescador.html", user=current_user, fishes = user_fish_inventory, transactions = current_user.get_past_sell())
 
-def showPerfilPescador(user):
-    return render_template("perfilPescador.html", user=user)
+    def showPerfilComprador(self, user):
+        return render_template("perfilComprador.html", user=user)
+
+    def showPerfilPescador(self, user):
+        return render_template("perfilPescador.html", user=user)
 
 # @views.route()
 # def showHome():
