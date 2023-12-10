@@ -64,12 +64,12 @@ class User(db.Model, UserMixin):
             
             new_cart = self.add_cart()
             #add fish to cart
-            new_cart.add_transaction(fish_id, weight)
+            new_cart.add_transaction(fish_id, weight, Fish.query.filter_by(id = fish_id).first().user_id)
             self.lastTransactionFinished = False
             db.session.commit()
         else:
             cart = Cart.query.filter_by(buyer_id=self.id).filter_by(paid = False).first()
-            cart.add_transaction(fish_id, weight)
+            cart.add_transaction(fish_id, weight, Fish.query.filter_by(id = fish_id).first().user_id)
             db.session.commit()
    
     def commit_last_transaction(self):
@@ -110,16 +110,15 @@ class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     cost = db.Column(db.Integer)
     buyer_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    fisher_id = db.Column(db.Integer)
     paid = db.Column(db.Boolean, default = False)
     transactions = db.relationship('Transaction', backref='owner', lazy=True)
 
     def __init__(self):
         self.cost = 0
 
-    def add_transaction(self, fish_id, weight):
+    def add_transaction(self, fish_id, weight, fisher_id):
 
-        new_transaction = Transaction(fish_id=fish_id, weight=weight)
+        new_transaction = Transaction(fish_id=fish_id, weight=weight, fisher_id = fisher_id)
         self.transactions.append(new_transaction)
         db.session.add(new_transaction)
         db.session.commit()   
@@ -132,16 +131,21 @@ class Cart(db.Model):
         self.paid = True
         db.session.commit()   
 
+    def get_transactions(self):
+        return Transaction.query.filter(Transaction.cart_id == self.id).all()
+    
 
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fish_id = db.Column(db.Integer)
     weight = db.Column(db.Integer)
     cart_id = db.Column(db.Integer, db.ForeignKey('cart.id'))
+    fisher_id  = db.Column(db.Integer)
 
-    def __init__(self, fish_id, weight):
+    def __init__(self, fish_id, weight, fisher_id):
         self.fish_id = fish_id
         self.weight = weight
+        self.fisher_id = fisher_id
     
     def compute_cost(self):
         return (Fish.query.filter_by(id = self.fish_id).first().price) * (self.weight)
@@ -153,6 +157,12 @@ class Transaction(db.Model):
         new_fish.user_id = 0
         db.session.add(new_fish)
         db.session.commit()    
+
+    def get_fish_type(self):
+        return Fish.query.filter_by(id = self.fish_id).first().type
+
+    def get_fisher_name(self):
+        return User.query.filter_by(id = self.fisher_id).first().name
             
             
 

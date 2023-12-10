@@ -26,8 +26,8 @@ def showInitial():
 def showHomeComprador():
     return render_template("homeComprador.html", user=current_user)
 
-def showCarrinho():
-    return render_template("carrinho.html", user = current_user)
+def showCarrinho(cart):
+    return render_template("carrinho.html", user = current_user, transactions = cart.get_transactions() if cart is not None else None)
 
 def showHistoricoCompras():
     return render_template("historicoCompras.html")

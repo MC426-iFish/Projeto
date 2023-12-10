@@ -125,25 +125,21 @@
                   <div class="rectangle-60"></div>
                   <div class="rectangle-61"></div>
                   <div class="_1-kg-salm-o-r-47-85">
-                    1 Kg Salmão
-                    <br />
-                    R$ 47,85
+                    
+
+                    {% with transactions = transactions %}
+                      {% if transactions %}
+                        <ul class="transactions">
+                        {% for transaction in transactions %}
+                          <li>{{ transaction.get_fish_type() }}, {{transaction.weight}} kg, R$:{{transaction.compute_cost()}}, pescador : {{transaction.get_fisher_name()}}</li>
+                        {% endfor %}
+                        </ul>
+                      {% endif %}
+                    {% endwith %}
                   </div>
                   <div class="carrinho">Carrinho</div>
                 </div>
-                <svg
-                  class="xmark-solid-1"
-                  width="40"
-                  height="50"
-                  viewBox="0 0 40 50"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M35.6875 14.707C36.9896 13.4863 36.9896 11.5039 35.6875 10.2832C34.3855 9.0625 32.2709 9.0625 30.9688 10.2832L20 20.5762L9.02087 10.293C7.71879 9.07227 5.60421 9.07227 4.30212 10.293C3.00004 11.5137 3.00004 13.4961 4.30212 14.7168L15.2813 25L4.31254 35.293C3.01046 36.5137 3.01046 38.4961 4.31254 39.7168C5.61462 40.9375 7.72921 40.9375 9.03129 39.7168L20 29.4238L30.9792 39.707C32.2813 40.9277 34.3959 40.9277 35.698 39.707C37 38.4863 37 36.5039 35.698 35.2832L24.7188 25L35.6875 14.707Z"
-                    fill="black"
-                  />
-                </svg>
+                
               
                 <div class="rectangle-66"></div>
                 <div class="forma-de-pagamento">Forma de pagamento:</div>

@@ -32,7 +32,7 @@ def carrinho():
             current_user.commit_last_transaction()
 
 
-    return showCarrinho()
+    return showCarrinho(cart = current_user.get_active_transaction())
 
 @comprador.route('/historicoCompras', methods=['GET', 'POST'])
 def historicoCompras():
