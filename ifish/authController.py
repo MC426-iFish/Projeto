@@ -83,7 +83,6 @@ def createAndLoginUser(name, email, password, userType):
     db.session.add(newUser)
     db.session.commit()
     login_user(newUser, remember=True)                    
-    flash('Conta Criada com Sucesso!', category='sucess')
     if newUser.user_type == 'comprador':
         return redirect(url_for("comprador.homeComprador"))
     elif newUser.user_type == 'pescador':

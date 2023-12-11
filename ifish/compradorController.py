@@ -52,7 +52,7 @@ def buscaComprador():
         peso = request.form.get('pesoPeixe')
         current_user.add_transaction_fish(chosen_fish, int(peso)) 
 
-    return view.showBuscaComprador(fishes)
+    return view.showBuscaComprador(fishes, current_user)
 
 @comprador.route('/perfilComprador', methods=['GET', 'POST'])
 def perfilComprador():   
