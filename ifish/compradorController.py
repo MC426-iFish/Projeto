@@ -46,6 +46,7 @@ def buscaComprador():
     elif request.method == "POST" and 'busca' in request.form:
         fish_type = request.form.get('busca')
         fishes = current_user.search_fish_buy(fish_type)
+        
     elif request.method == "POST" and request.form.get('compraSubmit') == 'Adicionar':
         chosen_fish = request.form.get('OPCAO')
         peso = request.form.get('pesoPeixe')
@@ -59,5 +60,7 @@ def perfilComprador():
     if request.method == "POST":
         if request.form['redirect'] == 'home':
             return redirect(url_for('comprador.homeComprador'))
+        elif request.form['redirect'] == 'Logout':
+            return redirect(url_for('auth.logout'))
 
     return view.showPerfilComprador(user)

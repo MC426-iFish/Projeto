@@ -113,10 +113,11 @@
   left: 15px;
   top: 241px;
   width: 298px;
-  height: 147px;
+  height: 450px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  overflow-y: auto;
 }
 .tobaro-pescados-27-04-2023-19-14-1-kg-salm-o-r-48-75-span {
   color: #000000;

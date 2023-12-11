@@ -106,13 +106,14 @@
   font-weight: 400;
   position: absolute;
   left: 15px;
-  top: 527.45px;
+  top: 515px;
   width: 276px;
-  height: 200px;
+  height: 170px;
   display: flex;
   align-items: top;
   justify-content: flex-start;
   overflow-y: auto;
+  z-index: 50;
 }
 .ltimas-vendas {
   color: #000000;
@@ -123,6 +124,21 @@
   position: absolute;
   left: 21px;
   top: 435.72px;
+  width: 200px;
+  height: 91.72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.balanco {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 18px;
+  font-weight: 350;
+  position: absolute;
+  left: 21px;
+  top: 455.72px;
   width: 200px;
   height: 91.72px;
   display: flex;
