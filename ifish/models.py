@@ -11,6 +11,7 @@ class User(db.Model, UserMixin):
     fishInventory = db.relationship('Fish', backref='owner', lazy=True)
     cartInventory = db.relationship('Cart', backref='owner', lazy=True)
     lastTransactionFinished = db.Column(Boolean, default = True)
+    evaluations = db.relationship("Evaluation", backref='owner', lazy=True)
 
     def __init__(self, name, email, password, userType):
         self.name = name
@@ -36,6 +37,27 @@ class User(db.Model, UserMixin):
         else:
             raise PermissionError("Shouldn't be allowed")
     
+    def add_evaluation(self, comment, grade):
+        if self.user_type == 'pescador':
+            new_evaluation = Evaluation(comment=comment, grade=grade)
+            self.evaluations.append(new_evaluation)
+            db.session.add(new_evaluation)
+            db.session.commit()
+        else:
+            raise PermissionError("Shouldn't be allowed")
+        
+    def get_evaluation_grade(self):
+        if self.user_type == 'pescador':
+            grade = 0
+            count = 0
+            for evaluation in self.evaluations:
+                grade += evaluation.grade
+                count += 1
+            grade = grade / count
+            return grade
+        else:
+            raise PermissionError("Shouldn't be allowed")
+
     def remove_fish(self, type, price):
         if self.user_type == 'pescador':
             fish_to_delete = self.search_own_fish(type, price)
@@ -116,6 +138,19 @@ class Fish(db.Model):
             db.session.commit()
 
     def get_fish_owner(self):
+        return User.query.filter_by(id=self.user_id).first()
+    
+class Evaluation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.String(200))
+    grade = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __init__(self, comment, grade):
+        self.comment = comment
+        self.grade = grade
+    
+    def get_evaluation_owner(self):
         return User.query.filter_by(id=self.user_id).first()
 
 class Cart(db.Model):
@@ -205,6 +240,9 @@ class Transaction(db.Model):
 
     def get_fisher_name(self):
         return User.query.filter_by(id = self.fisher_id).first().name
+    
+    def get_fisher_grade(self):
+        return User.query.filter_by(id = self.fisher_id).first().get_evaluation_grade()
     
     def get_buyer_name(self):
         buyer_id = Cart.query.filter_by(id = self.cart_id).first().buyer_id

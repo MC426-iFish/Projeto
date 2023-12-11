@@ -69,8 +69,8 @@ def perfilComprador():
 @comprador.route('/avaliarPescador', methods=['GET', 'POST'])
 def avaliarPescador():
     if request.method == "POST":
-        coment = request.form.get("coment")
+        comment = request.form.get("comment")
         grade = request.form.get("fb")
-        #colocar isso pro vendedor
+        current_user.add_evaluation(comment, grade)
         return redirect(url_for('comprador.homeComprador'))
     return view.showAvaliarPescador(current_user)
