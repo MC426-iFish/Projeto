@@ -51,3 +51,6 @@ class Views(metaclass=ViewsMeta):
 
     def showPerfilPescador(self, user):
         return render_template("perfilPescador.html", user=user)
+    
+    def showAvaliarPescador(self, user):
+        return render_template("avaliarPescador.html", user=user)

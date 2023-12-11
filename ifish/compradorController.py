@@ -26,6 +26,7 @@ def carrinho():
             return redirect(url_for('comprador.homeComprador'))
         elif request.form.get('continuar') == 'Continuar':
             current_user.commit_last_transaction()
+            return redirect(url_for('comprador.avaliarPescador'))
 
     return view.showCarrinho(current_user, cart = current_user.get_active_transaction())
 
@@ -64,3 +65,7 @@ def perfilComprador():
             return redirect(url_for('auth.logout'))
 
     return view.showPerfilComprador(user)
+
+@comprador.route('/avaliarPescador', methods=['GET', 'POST'])
+def avaliarPescador():
+    return view.showAvaliarPescador(current_user)

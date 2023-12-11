@@ -1,0 +1,173 @@
+.tela-carrinho-comprador,
+.tela-carrinho-comprador * {
+  box-sizing: border-box;
+}
+.tela-carrinho-comprador {
+  background: #ffffff;
+  width: 360px;
+  height: 799px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-8 {
+  background: #71ccff;
+  border-radius: 10px;
+  width: 360px;
+  height: 140px;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+}
+.boa-tarde-cl-ber {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  position: absolute;
+  left: 114px;
+  top: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.settings {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 27px;
+  top: 46px;
+  overflow: visible;
+}
+.usu-rio {
+  height: auto;
+  position: absolute;
+  right: 8.06%;
+  left: 78.06%;
+  width: 13.89%;
+  bottom: 88.13%;
+  top: 5.62%;
+  height: 6.25%;
+  overflow: visible;
+}
+.rectangle-9 {
+  background: #71ccff;
+  border-radius: 10px;
+  width: 360px;
+  height: 140px;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+}
+.house-solid-1 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 27px;
+  top: 45px;
+  overflow: visible;
+}
+.vector4 {
+  height: auto;
+  position: absolute;
+  right: 55.56%;
+  left: 30.56%;
+  width: 13.89%;
+  bottom: 2.5%;
+  top: 91.25%;
+  height: 6.25%;
+  overflow: visible;
+}
+.usu-rio2 {
+  height: auto;
+  position: absolute;
+  right: 8.06%;
+  left: 78.06%;
+  width: 13.89%;
+  bottom: 88.13%;
+  top: 5.62%;
+  height: 6.25%;
+  overflow: visible;
+}
+.search {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-60 {
+  background: #d9d9d9;
+  width: 360px;
+  height: 663px;
+  position: absolute;
+  left: 0px;
+  top: 137px;
+}
+.avaliar-o-vendedor {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  position: absolute;
+  left: 30px;
+  top: 137px;
+  width: 310px;
+  height: 86.78px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.deixe-aqui-o-seu-coment-rio {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  position: absolute;
+  left: 25px;
+  top: 493px;
+  width: 310px;
+  height: 86.52px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-66 {
+  background: #fdfbfb;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 360px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 586px;
+}
+.rectangle-67 {
+  background: #50caff;
+  border-radius: 15px;
+  width: 302px;
+  height: 61px;
+  position: absolute;
+  left: 26px;
+  top: 723px;
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+.enviar {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  position: absolute;
+  left: 139px;
+  top: 738px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
