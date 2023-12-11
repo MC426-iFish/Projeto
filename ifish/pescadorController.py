@@ -41,3 +41,9 @@ def perfilPescador():
             return redirect(url_for("auth.logout"))
         
     return view.showPerfilPescador(user)
+
+@pescador.route('/avaliacoes', methods=['GET', 'POST'])
+def avaliacoes():
+    user = current_user
+        
+    return view.showAvaliacoes(user)

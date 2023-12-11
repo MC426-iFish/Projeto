@@ -71,6 +71,11 @@ def avaliarPescador():
     if request.method == "POST":
         comment = request.form.get("comment")
         grade = request.form.get("fb")
-        current_user.add_evaluation(comment, grade)
+
+        #Pegar o vendedor da última venda
+        fisher = current_user.get_last_fisher()            
+
+        fisher.add_evaluation(comment, grade, current_user)
+        
         return redirect(url_for('comprador.homeComprador'))
     return view.showAvaliarPescador(current_user)

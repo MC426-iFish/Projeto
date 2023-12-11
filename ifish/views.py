@@ -44,8 +44,6 @@ class Views(metaclass=ViewsMeta):
             totalsum += i.compute_cost()
         return render_template("homePescador.html", user=current_user, fishes = current_user.get_fishes(), transactions = current_user.get_past_sell(), totalsum = totalsum)
 
-
-
     def showPerfilComprador(self, user):
         return render_template("perfilComprador.html", user=user)
 
@@ -54,3 +52,7 @@ class Views(metaclass=ViewsMeta):
     
     def showAvaliarPescador(self, user):
         return render_template("avaliarPescador.html", user=user)
+    
+    def showAvaliacoes(self, current_user):
+        print(current_user.get_evaluations())
+        return render_template("avaliacoes.html", user = current_user, evals = current_user.get_evaluations())

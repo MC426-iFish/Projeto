@@ -1,0 +1,192 @@
+.tela-hist-rico-comprador,
+.tela-hist-rico-comprador * {
+  box-sizing: border-box;
+}
+.tela-hist-rico-comprador {
+  background: #ffffff;
+  width: 360px;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-8 {
+  background: #71ccff;
+  border-radius: 10px;
+  width: 360px;
+  height: 140px;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+}
+.house-solid-1 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 27px;
+  top: 45px;
+  overflow: visible;
+}
+.house-solid-1t {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 27px;
+  top: 45px;
+  overflow: visible;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+.boa-tarde-cl-ber {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  position: absolute;
+  left: 114px;
+  top: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.circulo-vazado {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 170px;
+  top: 680px;
+  overflow: visible;
+}
+.pescadores-do-m-s {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 87px;
+  top: 519px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.usu-rio {
+  height: auto;
+  position: absolute;
+  right: 8.06%;
+  left: 78.06%;
+  width: 13.89%;
+  bottom: 88.12%;
+  top: 5.62%;
+  height: 6.25%;
+  overflow: visible;
+}
+.search {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-60 {
+  background: #d9d9d9;
+  width: 360px;
+  height: 663px;
+  position: absolute;
+  left: 0px;
+  top: 141px;
+}
+.rectangle-64 {
+  background: #fff9f9;
+  border-radius: 15px;
+  width: 324px;
+  height: 500px;
+  position: absolute;
+  left: 15px;
+  top: 241px;
+}
+.tobaro-pescados-27-04-2023-19-14-1-kg-salm-o-r-48-75 {
+  color: #000000;
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  position: absolute;
+  left: 15px;
+  top: 241px;
+  width: 298px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+.tobaro-pescados-27-04-2023-19-14-1-kg-salm-o-r-48-75-span {
+  color: #000000;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+}
+.tobaro-pescados-27-04-2023-19-14-1-kg-salm-o-r-48-75-span2 {
+  color: #000000;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  width: 298px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-wrap: break-word;
+}
+.transactions{
+    width: 298px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-wrap: break-word;
+}
+.rectangle-65 {
+  background: #fff9f9;
+  border-radius: 15px;
+  width: 324px;
+  height: 147px;
+  position: absolute;
+  left: 15px;
+  top: 400px;
+}
+.josias-nascimento-23-04-2023-18-32-0-5-kg-camar-o-r-33-75 {
+  color: #000000;
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  position: absolute;
+  left: 29px;
+  top: 402px;
+  width: 310px;
+  height: 143px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.josias-nascimento-23-04-2023-18-32-0-5-kg-camar-o-r-33-75-span {
+  color: #000000;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+}
+.josias-nascimento-23-04-2023-18-32-0-5-kg-camar-o-r-33-75-span2 {
+  color: #000000;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+.ltimas-compras {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  position: absolute;
+  left: 15px;
+  top: 154px;
+  width: 310px;
+  height: 86.52px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
