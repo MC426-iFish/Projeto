@@ -37,8 +37,13 @@ class Views(metaclass=ViewsMeta):
         return render_template("buscaComprador.html", fishes=fishes)
 
     def showHomePescador(self, current_user):
+        totalsum = 0
         user_fish_inventory = current_user.fishInventory  # Get the relationship object
-        return render_template("homePescador.html", user=current_user, fishes = user_fish_inventory, transactions = current_user.get_past_sell())
+
+        for i in current_user.get_past_sell():
+            totalsum += i.compute_cost()
+        return render_template("homePescador.html", user=current_user, fishes = current_user.get_fishes(), transactions = current_user.get_past_sell(), totalsum = totalsum)
+
 
     def showPerfilComprador(self, user):
         return render_template("perfilComprador.html", user=user)
