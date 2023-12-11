@@ -31,10 +31,10 @@ class Views(metaclass=ViewsMeta):
         return render_template("carrinho.html", user = current_user, transactions = cart.get_transactions() if cart is not None else None)
 
     def showHistoricoCompras(self, current_user):
-        return render_template("historicoCompras.html", transactions = current_user.get_past_transactions())
+        return render_template("historicoCompras.html", user = current_user, transactions = current_user.get_past_transactions())
 
-    def showBuscaComprador(self, fishes):
-        return render_template("buscaComprador.html", fishes=fishes)
+    def showBuscaComprador(self, fishes, current_user):
+        return render_template("buscaComprador.html", user = current_user, fishes=fishes)
 
     def showHomePescador(self, current_user):
         totalsum = 0
@@ -43,8 +43,6 @@ class Views(metaclass=ViewsMeta):
         for i in current_user.get_past_sell():
             totalsum += i.compute_cost()
         return render_template("homePescador.html", user=current_user, fishes = current_user.get_fishes(), transactions = current_user.get_past_sell(), totalsum = totalsum)
-
-
 
     def showPerfilComprador(self, user):
         return render_template("perfilComprador.html", user=user)
