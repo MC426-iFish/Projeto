@@ -37,5 +37,7 @@ def perfilPescador():
     if request.method == "POST":
         if request.form['redirect'] == 'home':
             return redirect(url_for("pescador.homePescador"))
+        elif request.form['redirect'] == 'Logout':
+            return redirect(url_for("auth.logout"))
         
     return view.showPerfilPescador(user)
