@@ -24,8 +24,8 @@ def estoque():
         current_user.add_fish(tipo, '2023-10-23', int(qtd), int(preco))
         qtd = 0
     elif request.method == 'POST' and request.form.get('removersubmit') == 'Remover':
-        fish_type = request.form.get('OPCAO')
-        current_user.remove_fish(fish_type)
+        fish_type_price = request.form.get('OPCAO').replace("'", "").strip("''()").split(', ')
+        current_user.remove_fish(fish_type_price[0], fish_type_price[1])
     elif request.method == 'POST' and request.form.get('redirect') == 'home':
         return redirect(url_for("pescador.homePescador"))
 
