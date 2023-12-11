@@ -112,7 +112,7 @@
                     {% if fishes %}
                         <ul class="no-bullets">
                         {% for fish in fishes %}
-                            <li><INPUT TYPE="RADIO" NAME="OPCAO" VALUE="{{fish.type}}" required>{{fish.type}}</li>
+                            <li><INPUT TYPE="RADIO" NAME="OPCAO" VALUE="{{fish.type, fish.price}}" required>{{fish.type}}, R$: {{fish.price}}</li>
                         {% endfor %}
                         </ul>
                     {% endif %}

@@ -36,9 +36,9 @@ class User(db.Model, UserMixin):
         else:
             raise PermissionError("Shouldn't be allowed")
     
-    def remove_fish(self, type):
+    def remove_fish(self, type, price):
         if self.user_type == 'pescador':
-            fish_to_delete = self.search_own_fish(type)
+            fish_to_delete = self.search_own_fish(type, price)
             if fish_to_delete is not None:
                 db.session.delete(fish_to_delete)  # Mark the fish object for deletion
                 db.session.commit()
