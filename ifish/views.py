@@ -12,8 +12,8 @@ class ViewsMeta(type):
 class Views(metaclass=ViewsMeta):
 
     def showStock(self, current_user):
-        user_fish_inventory = current_user.fishInventory  # Get the relationship object
-        return render_template("estoque.html", user=current_user, fishes = user_fish_inventory)
+        user_fish_inventory = current_user.fishInventory  # Get the relationship object9
+        return render_template("estoque.html", user=current_user, fishes = current_user.get_fishes())
 
     def showLogin(self):
         return render_template("login.html")
@@ -43,6 +43,7 @@ class Views(metaclass=ViewsMeta):
         for i in current_user.get_past_sell():
             totalsum += i.compute_cost()
         return render_template("homePescador.html", user=current_user, fishes = current_user.get_fishes(), transactions = current_user.get_past_sell(), totalsum = totalsum)
+
 
 
     def showPerfilComprador(self, user):
