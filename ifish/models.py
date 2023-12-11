@@ -18,14 +18,14 @@ class User(db.Model, UserMixin):
         self.password = password
         self.user_type = userType
 
-    def search_own_fish(self, fish_type):
+    def search_own_fish(self, fish_type, price):
         if fish_type in [i.type for i in self.fishInventory]:
-            return Fish.query.filter_by(type=fish_type).filter_by(user_id=self.id).first()
+            return Fish.query.filter_by(type=fish_type).filter_by(user_id=self.id).filter_by(price = price).first()
         return None
             
     def add_fish(self, type, fishDate, quantity, price):
         if self.user_type == 'pescador':
-            fish = self.search_own_fish(type)
+            fish = self.search_own_fish(type, price)
             if fish is not None:
                 fish.add_quantity(quantity)
             else:
