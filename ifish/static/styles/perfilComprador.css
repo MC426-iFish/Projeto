@@ -134,6 +134,15 @@
   left: 25px;
   top: 319px;
 }
+.rectangle-66 {
+  background: #fff9f9;
+  border-radius: 15px;
+  width: 310px;
+  height: 70px;
+  position: absolute;
+  left: 25px;
+  top: 412px;
+}
 .nome-de-usu-rio {
   color: #000000;
   text-align: center;
@@ -191,9 +200,9 @@
     font-size: 26px;
     font-weight: 400;
     position: absolute;
-    left: 93;
+    left: 93px;
     top: 337px;
-    width: 175;
+    width: 175px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,4 +213,25 @@
 }
 .alterar-senha:hover {
     text-decoration: underline;
+}
+.logout {
+  color: #d2192f;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  position: absolute;
+  left: 129px;
+  top: 429px;
+  width: 103px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: transparent;
+  background-color: transparent;
+  z-index: 100;
+  cursor: pointer;
+}
+.logout:hover {
+  text-decoration: underline;
 }

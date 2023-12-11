@@ -59,5 +59,7 @@ def perfilComprador():
     if request.method == "POST":
         if request.form['redirect'] == 'home':
             return redirect(url_for('comprador.homeComprador'))
+        elif request.form['redirect'] == 'Logout':
+            return redirect(url_for('auth.logout'))
 
     return view.showPerfilComprador(user)

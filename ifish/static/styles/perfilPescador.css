@@ -143,6 +143,15 @@
   left: 25px;
   top: 476px;
 }
+.rectangle-66 {
+  background: #fff9f9;
+  border-radius: 15px;
+  width: 310px;
+  height: 70px;
+  position: absolute;
+  left: 25px;
+  top: 568px;
+}
 .vector5 {
   height: auto;
   position: absolute;
@@ -273,4 +282,25 @@
 }
 .alterar-senha:hover {
     text-decoration: underline;
+}
+.logout {
+  color: #d2192f;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  position: absolute;
+  left: 129px;
+  top: 583px;
+  width: 103px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: pointer;
+  background-color: transparent;
+  border-color: transparent;
+}
+.logout:hover {
+  text-decoration: underline;
 }
