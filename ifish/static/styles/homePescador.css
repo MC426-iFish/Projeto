@@ -130,6 +130,21 @@
   align-items: center;
   justify-content: flex-start;
 }
+.balanco {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 18px;
+  font-weight: 350;
+  position: absolute;
+  left: 21px;
+  top: 455.72px;
+  width: 200px;
+  height: 91.72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 .rectangle-9 {
   background: #d9d9d9;
   border-radius: 15px;
