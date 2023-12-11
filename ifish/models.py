@@ -46,7 +46,7 @@ class User(db.Model, UserMixin):
             raise PermissionError("Shouldn't be allowed")
         
     def search_fish_buy(self, fish_type):
-        return Fish.query.filter_by(type=fish_type)
+        return [i for i in Fish.query.filter_by(type=fish_type).all() if (i.user_id != 0 and i.quantity > 0)]
     
     def add_cart(self):
         new_cart = Cart()
@@ -56,21 +56,23 @@ class User(db.Model, UserMixin):
         return new_cart
 
     def add_transaction_fish(self, fish_id, weight):
-        if self.lastTransactionFinished:
-            new_cart = self.add_cart() #add cart
-            new_cart.add_transaction(fish_id, weight, Fish.query.filter_by(id = fish_id).first().user_id) #add fish to cart
-            self.lastTransactionFinished = False
-            db.session.commit()
-        else:
-            cart = Cart.query.filter_by(buyer_id=self.id).filter_by(paid = False).first()
-            cart.add_transaction(fish_id, weight, Fish.query.filter_by(id = fish_id).first().user_id)
-            db.session.commit()
+        if Fish.query.filter_by(id = fish_id).first().quantity >= weight:
+            if self.lastTransactionFinished:
+                new_cart = self.add_cart() #add cart
+                new_cart.add_transaction(fish_id, weight, Fish.query.filter_by(id = fish_id).first().user_id) #add fish to cart
+                self.lastTransactionFinished = False
+                db.session.commit()
+            else:
+                cart = Cart.query.filter_by(buyer_id=self.id).filter_by(paid = False).first()
+                cart.add_transaction(fish_id, weight, Fish.query.filter_by(id = fish_id).first().user_id)
+                db.session.commit()
    
     def commit_last_transaction(self):
         if not self.lastTransactionFinished:
             cart = Cart.query.filter_by(buyer_id=self.id).filter_by(paid = False).first()
             cart.pay_transactions()
             self.lastTransactionFinished = True
+            db.session.commit()
         
     def get_active_transaction(self):
         if not self.lastTransactionFinished:
@@ -79,12 +81,20 @@ class User(db.Model, UserMixin):
     
     def get_past_transactions(self):
         past_transactions = []
-        for i in Cart.query.filter_by(buyer_id = self.id).all():
-            past_transactions.extend(Transaction.query.filter_by(cart_id = i.id).all())
+        for i in Cart.query.filter_by(buyer_id = self.id).order_by(Cart.id.desc()).all():
+            if i.paid:
+                past_transactions.extend(Transaction.query.filter_by(cart_id = i.id).all())
         return past_transactions
     
     def get_past_sell(self):
-        return Transaction.query.filter_by(fisher_id = self.id).all()
+        past_transactions = []
+        for i in Transaction.query.filter_by(fisher_id = self.id).order_by(Transaction.id.desc()).all():
+            if Cart.query.filter_by(id = i.cart_id).first().paid:
+                past_transactions.append(i)
+        return past_transactions
+    
+    def get_fishes(self):
+        return Fish.query.filter(Fish.user_id == self.id, Fish.quantity > 0).all()
     
 class Fish(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -101,7 +111,7 @@ class Fish(db.Model):
         self.price = price
     
     def add_quantity(self, value):
-        if self.quantity > -value:
+        if self.quantity >= -value:
             self.quantity += value
             db.session.commit()
 
@@ -119,17 +129,34 @@ class Cart(db.Model):
         self.cost = 0
 
     def add_transaction(self, fish_id, weight, fisher_id):
+        
+        #filter if there already is a transaction for same fish_id
+        previous = Transaction.query.filter(Transaction.cart_id == self.id).filter(Transaction.fish_id == fish_id).first()
 
-        new_transaction = Transaction(fish_id=fish_id, weight=weight, fisher_id = fisher_id)
-        self.transactions.append(new_transaction)
-        db.session.add(new_transaction)
-        db.session.commit()   
-        self.cost += new_transaction.compute_cost()
-        db.session.commit()   
+        if previous is not None:
+            previous.add_quantity(weight)
+        else:
+
+            new_transaction = Transaction(fish_id=fish_id, weight=weight, fisher_id = fisher_id)
+            self.transactions.append(new_transaction)
+            db.session.add(new_transaction)
+            db.session.commit()   
+            self.cost += new_transaction.compute_cost()
+            db.session.commit()   
 
     def pay_transactions(self):
         for i in Transaction.query.filter(Transaction.cart_id == self.id).all():
+            
+            if not i.can_commit():
+                db.session.delete(i)
+                print("Não foi possível concluir a compra")
+                
+
+        for i in Transaction.query.filter(Transaction.cart_id == self.id).all():
+            print("Commiting transaction", i.id)
             i.commit_transaction()
+                
+
         self.paid = True
         db.session.commit()   
 
@@ -151,19 +178,38 @@ class Transaction(db.Model):
     def compute_cost(self):
         return (Fish.query.filter_by(id = self.fish_id).first().price) * (self.weight)
     
+    def can_commit(self):
+        fish = Fish.query.filter_by(id = self.fish_id).first()
+        if(fish.quantity >= self.weight):
+            return True
+        return False   
+
     def commit_transaction(self):
         fish = Fish.query.filter_by(id = self.fish_id).first()
-        fish.add_quantity(-1*self.weight)
-        new_fish = Fish(type=fish.type, fishDate=fish.fishDate, quantity=self.weight, price=fish.price)
-        new_fish.user_id = 0
-        db.session.add(new_fish)
-        db.session.commit()    
+        if(fish.quantity >= self.weight):
+            fish = Fish.query.filter_by(id = self.fish_id).first()
+            fish.add_quantity(-1*self.weight)
+            new_fish = Fish(type=fish.type, fishDate=fish.fishDate, quantity=self.weight, price=fish.price)
+            new_fish.user_id = 0
+            db.session.add(new_fish)
+            if fish.quantity == 0:
+                db.session.commit()
+                self.fish_id = new_fish.id 
+            
+            db.session.commit()
+             
 
     def get_fish_type(self):
+        
         return Fish.query.filter_by(id = self.fish_id).first().type
 
     def get_fisher_name(self):
         return User.query.filter_by(id = self.fisher_id).first().name
     
     def get_buyer_name(self):
-        return User.query.filter_by(id = Cart.query.filter_by(id = self.cart_id).first().buyer_id).first().name
+        buyer_id = Cart.query.filter_by(id = self.cart_id).first().buyer_id
+        return User.query.filter_by(id = buyer_id).first().name
+
+    def add_quantity(self, int):
+        self.weight += int
+        db.session.commit()
