@@ -1,0 +1,671 @@
+.tela-comprador,
+.tela-comprador * {
+  box-sizing: border-box;
+}
+.tela-comprador {
+  background: #ffffff;
+  width: 360px;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-8 {
+  background: #71ccff;
+  border-radius: 10px;
+  width: 360px;
+  height: 140px;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+}
+.boa-tarde-cl-ber {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  left: 114px;
+  top: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.settings {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 27px;
+  top: 46px;
+  overflow: visible;
+}
+.rodap-sele-es {
+  position: absolute;
+  inset: 0;
+}
+.config {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 0px;
+  top: 710px;
+  cursor: pointer;
+  font-size: 0px;
+}
+.configt {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 0px;
+  top: 710px;
+  cursor: pointer;
+  font-size: 0px;
+  z-index: 100;
+  opacity: 0;
+}
+.estoque {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 90px;
+  top: 710px;
+  cursor: pointer;
+}
+.estoquet {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 90px;
+  top: 710px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+.pesquisa {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 180px;
+  top: 710px;
+  cursor: pointer;
+}
+.pesquisat {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 180px;
+  top: 710px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+.mapa {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 270px;
+  top: 710px;
+}
+.mapa2 {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 290px;
+  top: 730px;
+  overflow: visible;
+}
+.history {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 200px;
+  top: 730px;
+  overflow: hidden;
+}
+.lupa {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.carrinho {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 20px;
+  top: 730px;
+  overflow: visible;
+}
+.vector6 {
+  height: auto;
+  position: absolute;
+  right: 55.56%;
+  left: 30.56%;
+  width: 13.89%;
+  bottom: 2.5%;
+  top: 91.25%;
+  height: 6.25%;
+  overflow: visible;
+}
+.menus {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-16 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 48px;
+  top: 299.65px;
+}
+.rectangle-13 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 49.01px;
+  top: 158px;
+}
+.rectangle-14 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 48px;
+  top: 205.22px;
+}
+.rectangle-15 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 48px;
+  top: 252.43px;
+}
+.top-10-mais-vendidos {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  left: 85px;
+  top: 215.45px;
+  width: 211.55px;
+  height: 18.89px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.perto-de-voc {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  left: 120px;
+  top: 262.67px;
+  width: 139.02px;
+  height: 18.89px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.o-que-voc-quer-comer {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  left: 74px;
+  top: 168.23px;
+  width: 233.71px;
+  height: 18.89px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.ltimas-compras {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  left: 107px;
+  top: 309.88px;
+  width: 160.17px;
+  height: 18.89px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.loja {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-17 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 360px;
+  height: 75px;
+  position: absolute;
+  left: 0px;
+  top: 355px;
+}
+._1-6-km {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 94px;
+  top: 397px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-18 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 360px;
+  height: 75px;
+  position: absolute;
+  left: 0px;
+  top: 430px;
+}
+.loja-x {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  position: absolute;
+  left: 90px;
+  top: 373px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.circulo-vazado2 {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 37px;
+  top: 377px;
+  overflow: visible;
+}
+.circulo-vazado3 {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 37px;
+  top: 452px;
+  overflow: visible;
+}
+.feira-de-cleiton-5 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  position: absolute;
+  left: 94px;
+  top: 455px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.estrela {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 286px;
+  top: 455px;
+  overflow: visible;
+}
+.sliders {
+  height: auto;
+  position: absolute;
+  left: 135px;
+  top: 645px;
+  overflow: visible;
+}
+.usu-rio {
+  height: auto;
+  position: absolute;
+  right: 8.06%;
+  left: 78.06%;
+  width: 13.89%;
+  bottom: 88.12%;
+  top: 5.62%;
+  height: 6.25%;
+  overflow: visible;
+}
+.rectangle-9 {
+  background: #71ccff;
+  border-radius: 10px;
+  width: 360px;
+  height: 140px;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+}
+.settings2 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 27px;
+  top: 46px;
+  overflow: visible;
+}
+.mapa3 {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 290px;
+  top: 730px;
+  overflow: visible;
+}
+.lupa2 {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.carrinho2 {
+  border-radius: 15px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 20px;
+  top: 730px;
+  overflow: visible;
+}
+.vector19 {
+  height: auto;
+  position: absolute;
+  right: 55.56%;
+  left: 30.56%;
+  width: 13.89%;
+  bottom: 2.5%;
+  top: 91.25%;
+  height: 6.25%;
+  overflow: visible;
+}
+.rectangle-162 {
+  background: #cde1ff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 48px;
+  top: 299.65px;
+}
+.rectangle-162t {
+  background: #cde1ff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 48px;
+  top: 299.65px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+.rectangle-132 {
+  background: #cde1ff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 49.01px;
+  top: 158px;
+}
+.rectangle-132t {
+  background: #cde1ff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 49.01px;
+  top: 158px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+.rectangle-142 {
+  background: #cde1ff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 48px;
+  top: 205.22px;
+}
+.rectangle-152 {
+  background: #cde1ff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271.99px;
+  height: 39.35px;
+  position: absolute;
+  left: 48px;
+  top: 252.43px;
+}
+.rectangle-172 {
+  background: #cde1ff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 360px;
+  height: 75px;
+  position: absolute;
+  left: 0px;
+  top: 355px;
+}
+.rectangle-182 {
+  background: #cde1ff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 360px;
+  height: 75px;
+  position: absolute;
+  left: 0px;
+  top: 430px;
+}
+.circulo-vazado7 {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 37px;
+  top: 377px;
+  overflow: visible;
+}
+.circulo-vazado8 {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 37px;
+  top: 452px;
+  overflow: visible;
+}
+.estrela2 {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 286px;
+  top: 455px;
+  overflow: visible;
+}
+.usu-rio2 {
+  height: auto;
+  position: absolute;
+  right: 8.06%;
+  left: 78.06%;
+  width: 13.89%;
+  bottom: 88.12%;
+  top: 5.62%;
+  height: 6.25%;
+  overflow: visible;
+}
+.usu-rio2t {
+  height: auto;
+  position: absolute;
+  right: 8.06%;
+  left: 78.06%;
+  width: 13.89%;
+  bottom: 88.12%;
+  top: 5.62%;
+  height: 6.25%;
+  overflow: visible;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+.rectangle-59 {
+  background: #d9d9d9;
+  border-radius: 13px;
+  width: 270px;
+  height: 78px;
+  position: absolute;
+  left: 45px;
+  top: 556px;
+}
+.rectangle-60 {
+  background: rgba(217, 217, 217, 0.8);
+  border-radius: 13px;
+  width: 270px;
+  height: 63px;
+  position: absolute;
+  left: 69px;
+  top: 563px;
+}
+.julieta {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  position: absolute;
+  left: 90px;
+  top: 572px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.screenshot-from-2023-05-25-16-52-33-1 {
+  border-radius: 13px;
+  width: 86px;
+  height: 78px;
+  position: absolute;
+  left: 230px;
+  top: 556px;
+}
+.pescadores-do-m-s {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 45px;
+  top: 517px;
+  width: 294px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

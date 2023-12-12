@@ -2,17 +2,16 @@
     <head>
         <title>signUp</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/signUp.css')}}">
+        {% with messages=get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+            <div class='alert'>
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endwith %}
     </head>
     <body>
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <ul class="flash-messages">
-              {% for message in messages %}
-                <li>{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}
         <center>
         <div class="criar-conta">
           <div class="group-41">
@@ -818,6 +817,11 @@
                 <div class="criar-conta3">Criar conta</div>
                 <input id="singUpSubmit" type="submit" name="singUpSubmit" value="Criar Conta" class="rectangle-35"/>
               </div>
+              <div class="group-23">
+                <div class="rectangle-35"></div>
+                <div class="criar-conta3">Pescador</div>
+                <input id="singUpSubmit" type="submit" name="singUpSubmit" value="Criar Conta" class="rectangle-35"/>
+              </div>
               <div class="group-25">
                 <div class="rectangle-50"></div>
                 <div class="nome-completo">Nome completo</div>
@@ -843,12 +847,20 @@
                     <input id="signUpPassword" type="password" name="signUpPassword" placeholder="Senha" required class="rectangle-57"/>
                   </div>
                 </div>
-                
+                  <div CLASS="radio-button">
+                    <INPUT TYPE="RADIO" NAME="OPCAO" VALUE="comprador" required> Comprador
+                    <INPUT TYPE="RADIO" NAME="OPCAO" VALUE="pescador" required> Pescador
+                  </div>
               </div>
             </div>
             </form>
+            <div class="ja-tem-conta">Já possui uma conta?</div>
+            <form action="#" method="post">
+              <input class="fazer-login" type="submit" name="singUpSubmit" value="Fazer login"/>
+            </form>
           </div>
         </div>
+        
         </center>
     </body>
 </html>

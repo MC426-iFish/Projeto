@@ -2,6 +2,14 @@
     <head>
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/login.css')}}">
+        {% with messages=get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+            <div class='alert'>
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endwith %}
     </head>
     <body>
         <center>
@@ -801,7 +809,15 @@
                     </div>
                   </div>
                 </div>
+                <div CLASS="radio-button">
+                  <INPUT TYPE="RADIO" NAME="OPCAO" VALUE="comprador" required> Comprador
+                  <INPUT TYPE="RADIO" NAME="OPCAO" VALUE="pescador" required> Pescador
+                </div>
               </div>
+              </form>
+              <div class="nao-tem-conta">Não possui uma conta?</div>
+              <form action="#" method="post">
+                <input class="criar-conta" type="submit" name="loginSubmit" value="Criar conta"/>
               </form>
             </div>
         </div>

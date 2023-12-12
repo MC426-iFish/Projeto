@@ -312,3 +312,50 @@
   top: 532px;
   overflow: visible;
 }
+.radio-button {
+  position: relative;
+  top: 130px;
+  font: 400 17px "Inter", sans-serif;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  width: 350px;
+  position: absolute;
+  z-index: 100;
+  left: 869px;
+}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: black;
+}
+.nao-tem-conta {
+  position: absolute;
+  top: 475px;
+  font: 400 17px "Inter", sans-serif;
+  left: 47px;
+}.criar-conta {
+  position: absolute;
+  top: 473px;
+  font: 400 17px "Inter", sans-serif;
+  left: 223px;
+  color: #1976d2;
+  cursor: pointer;
+  border-color: transparent;
+  width: 92px;
+  outline: transparent;
+  background-color: transparent;
+}
+.criar-conta:hover {
+  text-decoration: underline;
+}
