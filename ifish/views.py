@@ -21,6 +21,12 @@ class Views(metaclass=ViewsMeta):
     def showsignUp(self):
         return render_template("signUp.html")
 
+    def showAlterarUser(self):
+        return render_template("alterarUser.html")
+
+    def showAlterarSenha(self):
+        return render_template("alterarSenha.html")
+
     def showInitial(self):
         return render_template("init.html")
 

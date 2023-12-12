@@ -43,6 +43,10 @@ def perfilPescador():
             return redirect(url_for("auth.logout"))
         elif request.form['redirect'] == 'Mais Detalhes':
             return redirect(url_for("pescador.avaliacoes"))
+        elif request.form['redirect'] == 'Alterar Senha':
+            return redirect(url_for("alterador.alterarSenha"))
+        elif request.form['redirect'] == 'Trocar':
+            return redirect(url_for("alterador.alterarUser"))
         
     return view.showPerfilPescador(user)
 
