@@ -349,8 +349,8 @@
   width: 24px;
   height: 21px;
   position: absolute;
-  left: 198px;
-  top: 72px;
+  left: 182px;
+  top: 69px;
   overflow: visible;
 }
 .rectangle-73 {
@@ -361,6 +361,18 @@
   position: absolute;
   left: 17px;
   top: 90px;
+}
+.rectangle-73t {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 108px;
+  height: 31px;
+  position: absolute;
+  left: 17px;
+  top: 90px;
+  z-index: 50;
+  opacity: 0;
+  cursor: pointer;
 }
 .avalia-es {
   color: #000000;

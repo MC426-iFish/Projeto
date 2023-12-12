@@ -132,7 +132,7 @@
                       {% if transactions %}
                         <ul class="transactions">
                         {% for transaction in transactions %}
-                          <li>{{ transaction.get_fish_type() }}, {{transaction.weight}} kg, R$:{{transaction.compute_cost()}}, pescador : {{transaction.get_fisher_name()}}</li>
+                          <li>{{ transaction.get_fish_type() }}, {{transaction.weight}} kg, R$:{{transaction.compute_cost()}}, Pescador: {{transaction.get_fisher_name()}}, Nota: {{"{:.2f}".format(transaction.get_fisher_grade())}}</li>
                         {% endfor %}
                         </ul>
                       {% endif %}
