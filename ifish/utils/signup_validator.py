@@ -4,7 +4,7 @@ def validate(name, email : str, password, password_check, user):
     elif len(email) < 4:
         message ='O e-mail deve ter mais que 3 caracteres.'
     elif len(email) > 100:
-        message ='O email deve ter menos que 100 caracteres.'
+        message ='O e-mail deve ter menos que 100 caracteres.'
     elif len(name) < 2:
         message ='O nome deve ter mais que 1 caracter.'
     elif len(name) > 100:
@@ -16,7 +16,7 @@ def validate(name, email : str, password, password_check, user):
     elif len(password) > 100:
         message ='A senha deve ter menos que 100 caracteres.'
     elif not email.endswith(".com"):
-        message ='O email cadastrado não é válido!'
+        message ='O e-mail cadastrado não é válido!'
     else:
         return 'Conta Criada com Sucesso!', True
     return message, False
