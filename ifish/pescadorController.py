@@ -8,7 +8,7 @@ view = getView()
 @pescador.route('/homePescador', methods=['GET', 'POST'])
 def homePescador():
     if request.method == "POST":
-        if request.form['redirect'] == 'estoque':
+        if request.form['redirect'] == 'Acessar':
             return redirect(url_for("pescador.estoque"))
         if request.form['redirect'] == 'perfil':
             return redirect(url_for("pescador.perfilPescador"))
