@@ -1,6 +1,6 @@
-from ifish import create_app
 
-app = create_app()
+from ifish import app
+from flask_mail import Mail
 
 if __name__ == '__main__':
-    app.run(debug=True)
+   app.run(debug=True)
