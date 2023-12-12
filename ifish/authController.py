@@ -29,6 +29,8 @@ def login():
         if checkUserExists(user):
             if checkCorrectUserType(user, userType):
                 return loginAuth(user, userPassword)
+    elif request.method == "POST" and request.form["loginSubmit"] == "Criar conta":
+        return redirect(url_for("auth.sign_up"))
             
     return view.showLogin()
 
@@ -75,6 +77,8 @@ def sign_up():
             flash(message, category='error')    
         else:
             return createAndLoginUser(name, email, password, userType)
+    elif request.method == "POST" and request.form.get('singUpSubmit') == "Fazer login":
+        return redirect(url_for("auth.login"))
         
     return view.showsignUp()
 

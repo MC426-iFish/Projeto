@@ -180,7 +180,7 @@
   font: 700 28px "Inter", sans-serif;
   text-transform: uppercase;
   position: absolute;
-  left: 44px;
+  left: 82px;
   top: 163px;
 }
 .group-23 {
@@ -199,6 +199,7 @@
   position: absolute;
   left: 41px;
   top: 506px;
+  font: 400 17px "Inter", sans-serif;
 }
 .criar-conta3 {
   color: #000000;
@@ -393,23 +394,62 @@
   padding: 10px;
   margin-bottom: 20px;
 }
-
 .flash-message {
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   background-color: #f0f0f0;
 }
-
 .flash-message.success {
   color: green;
 }
-
 .flash-message.danger {
   color: red;
 }
-
 .radio-button {
   position: relative;
-  top: 0px; /* Ajuste o valor conforme necessário */
+  top: -13px;
+  font: 400 17px "Inter", sans-serif;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  width: 350px;
+  position: absolute;
+  z-index: 100;
+  left: 869px;
+}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: black;
+}
+.ja-tem-conta {
+  position: absolute;
+  top: 562px;
+  font: 400 17px "Inter", sans-serif;
+  left: 55px;
+}.fazer-login {
+  position: absolute;
+  top: 560px;
+  font: 400 17px "Inter", sans-serif;
+  left: 217px;
+  color: #1976d2;
+  cursor: pointer;
+  border-color: transparent;
+  width: 92px;
+  outline: transparent;
+  background-color: transparent;
+}
+.fazer-login:hover {
+  text-decoration: underline;
 }
