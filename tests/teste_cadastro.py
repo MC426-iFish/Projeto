@@ -5,14 +5,14 @@ from ifish.utils.signup_validator import validate
 class TestCadastro(unittest.TestCase):
     def test_already_signed_up(self):
         message, validation = validate("joca", "jotape@gmail.com",  "ABC123", "ABC123", True)
-        exp_msg = 'Este email já esta cadastrado.'
+        exp_msg = 'Este e-mail já esta cadastrado.'
         exp_val = False
         self.assertEqual(message, exp_msg)
         self.assertEqual(validation, exp_val)
     
     def test_mail(self):
         message, validation = validate("Joao Carlos", "jc",  "JCzik123", "JCzik123", False)
-        exp_msg = 'O email deve ter mais que 3 caracteres.'
+        exp_msg = 'O e-mail deve ter mais que 3 caracteres.'
         exp_val = False
         self.assertEqual(message, exp_msg)
         self.assertEqual(validation, exp_val)
@@ -25,7 +25,7 @@ class TestCadastro(unittest.TestCase):
 
     def test_name_length(self):
         message, validation = validate("J", "jotape@gmail.com",  "JCzik123", "JCzik123", False)
-        exp_msg = 'O nome deve ter mais que 1 caracter'
+        exp_msg = 'O nome deve ter mais que 1 caracter.'
         exp_val = False
         self.assertEqual(message, exp_msg)
         self.assertEqual(validation, exp_val)
@@ -38,7 +38,7 @@ class TestCadastro(unittest.TestCase):
 
     def test_password(self):
         message, validation = validate("Jotape", "jotape@gmail.com",  "JCzik123", "JCziK123", False)
-        exp_msg = 'As senhas não coincidem.'
+        exp_msg = 'As senhas não coincidem!'
         exp_val = False
         self.assertEqual(message, exp_msg)
         self.assertEqual(validation, exp_val)
