@@ -8,9 +8,9 @@
             <div class="tela-carrinho-comprador">
                 <div class="rectangle-8"></div>
                 <div class="boa-tarde-cl-ber">
-                Boa tarde,
+                Boa Tarde,
                 <br />
-                Cléber
+                  {{user.name.split()[0]}}
                 </div>
                 <svg
                 class="settings"
@@ -53,31 +53,12 @@
                 </svg>
             
                 <div class="rectangle-9"></div>
-                <svg
-                class="house-solid-1"
-                width="50"
-                height="50"
-                viewBox="0 0 50 50"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                >
-                <g clip-path="url(#clip0_2222_107)">
-                    <path
-                    d="M49.9826 24.9512C49.9826 26.709 48.6806 28.0859 47.2049 28.0859H44.4271L44.4878 43.7305C44.4878 43.9941 44.4705 44.2578 44.4444 44.5215V46.0938C44.4444 48.252 42.8906 50 40.9722 50H39.5833C39.4878 50 39.3924 50 39.2969 49.9902C39.1754 50 39.0538 50 38.9323 50H36.1111H34.0278C32.1094 50 30.5556 48.252 30.5556 46.0938V43.75V37.5C30.5556 35.7715 29.3142 34.375 27.7778 34.375H22.2222C20.6858 34.375 19.4444 35.7715 19.4444 37.5V43.75V46.0938C19.4444 48.252 17.8906 50 15.9722 50H13.8889H11.1198C10.9896 50 10.8594 49.9902 10.7292 49.9805C10.625 49.9902 10.5208 50 10.4167 50H9.02778C7.10938 50 5.55556 48.252 5.55556 46.0938V35.1562C5.55556 35.0684 5.55556 34.9707 5.56424 34.8828V28.0859H2.77778C1.21528 28.0859 0 26.7188 0 24.9512C0 24.0723 0.260417 23.291 0.868056 22.6074L23.125 0.78125C23.7326 0.0976562 24.4271 0 25.0347 0C25.6424 0 26.3368 0.195312 26.8576 0.683594L49.0278 22.6074C49.7222 23.291 50.0694 24.0723 49.9826 24.9512Z"
-                    fill="black"
-                    />
-                </g>
-                <defs>
-                    <clipPath id="clip0_2222_107">
-                    <rect width="50" height="50" fill="white" />
-                    </clipPath>
-                </defs>
-                </svg>
+                
             
                 <div class="boa-tarde-cl-ber">
-                Boa tarde,
+                Boa Tarde,
                 <br />
-                Cléber
+                    {{user.name.split()[0]}}
                 </div>
                 <svg
                 class="vector4"
@@ -127,31 +108,25 @@
 
                 <div class="deixe-aqui-o-seu-coment-rio">Deixe aqui o seu comentário</div>
                 </div>
-                <!-- <form action="#" method="POST">
-                    <input class="rectangle-67" type="submit" name="enviar" value="Enviar"/>
-                </form> -->
-                <!-- <div class="rectangle-66"></div> -->
-                <!-- <div class="rectangle-67"></div> -->
-                <!-- <div class="enviar">Enviar</div> -->
+                <div class="rectangle-67"></div>
+                <div class="enviar">Enviar</div>
                 <form action="#" method="POST">
                     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
                     <div class="estrelas">
-                        <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
+                        <input type="radio" id="cm_star-empty" name="fb" value="1" checked/>
                         <label for="cm_star-1"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-1" name="fb" value="1"/>
+                        <input type="radio" id="cm_star-1" name="fb" value="1" />
                         <label for="cm_star-2"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-2" name="fb" value="2"/>
+                        <input type="radio" id="cm_star-2" name="fb" value="2" />
                         <label for="cm_star-3"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-3" name="fb" value="3"/>
+                        <input type="radio" id="cm_star-3" name="fb" value="3" />
                         <label for="cm_star-4"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-4" name="fb" value="4"/>
+                        <input type="radio" id="cm_star-4" name="fb" value="4" />
                         <label for="cm_star-5"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-5" name="fb" value="5"/>
+                        <input type="radio" id="cm_star-5" name="fb" value="5" />
                     </div>
-                    <div class="rectangle-66">
-                        <input id="comments" type="text" name="comment" placeholder="" required class="texto-vertical"/>
-                    </div>
-                    <input class="rectangle-67" type="submit" name="enviar" value="Enviar"/>
+                    <textarea id="comments" type="text" name="comment" placeholder="" required class="rectangle-66"></textarea>
+                    <input class="rectangle-67t" type="submit" name="enviar" value="Enviar"/>
                 </form>
             </div>
         </center>
