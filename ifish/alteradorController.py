@@ -4,6 +4,7 @@ from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 from flask_mail import Mail, Message 
 from .views import showAlterarSenha, showAlterarUser
+import smtplib, ssl
 
 alterador = Blueprint('alterador', __name__)
 
@@ -14,10 +15,19 @@ def alterarUser():
         userName = request.form.get('Usuario')
         current_user.name = userName
         db.session.commit()
-        from .__init__ import mail
-        msg = Message(subject='Hello from the other side!', sender="enzofarias656@gmail.com", recipients=[current_user.email])
-        msg.body = "Hey Paul, sending you this email from my Flask app, lmk if it works"
-        mail.send(msg)
+        port = 465  # For SSL
+        smtp_server = "smtp.gmail.com"
+        sender_email = "enzofarias656@gmail.com"  # Enter your address
+        receiver_email = current_user.email  # Enter receiver address
+        password = "adsfxcv43"
+        message = """\
+          Subject: Hi there
+
+        This message is sent from Python."""
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, message)
         return redirect(url_for("views.home"))
     return showAlterarUser()    
 
@@ -30,9 +40,22 @@ def alterarSenha():
      if userNew == request.form.get("confirmar-senha"):
          current_user.password = userNew
          db.session.commit()
-         from .__init__ import mail
-         msg = Message(subject='Hello from the other side!', sender="enzofarias656@gmail.com", recipients=[current_user.email])
-         msg.body = "Hey Paul, sending you this email from my Flask app, lmk if it works"
-         mail.send(msg)
+         port = 465  # For SSL
+         smtp_server = "smtp.gmail.com"
+         sender_email = "enzofarias656@gmail.com"  # Enter your address
+         receiver_email = current_user.email  # Enter receiver address
+         password = "adsfxcv43"
+         message = """\
+          Subject: Hi there
+
+        This message is sent from Python."""
+         context = ssl.create_default_context()
+         with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, message)
          return redirect(url_for("views.home"))
+     elif userNew != request.form.get("confirmar-senha"):
+        flash('Senhas não compativeis', category='error')
+     else:
+        flash('Senha atual invalida', category = 'error')
     return showAlterarSenha()

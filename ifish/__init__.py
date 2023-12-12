@@ -14,12 +14,6 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'MC426ifish'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
-    app.config['MAIL_SERVER']= "smtp.gmail.com"
-    app.config['MAIL_PORT'] = 535
-    app.config['MAIL_USERNAME'] = "bruno_zilva@hotmail.com"
-    app.config['MAIL_PASSWORD'] = "adsfxcv43"
-    app.config['MAIL_USE_TLS'] = False
-    app.config['MAIL_USE_SSL'] = True
     db.init_app(app)
 
     from .views import views
@@ -46,7 +40,6 @@ def create_app():
     return app
 
 app = create_app()
-mail = Mail(app)
 
 def create_database(app):
     if not path.exists('website/' + DB_NAME):
