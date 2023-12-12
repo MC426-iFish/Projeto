@@ -54,5 +54,4 @@ class Views(metaclass=ViewsMeta):
         return render_template("avaliarPescador.html", user=user)
     
     def showAvaliacoes(self, current_user):
-        print(current_user.get_evaluations())
         return render_template("avaliacoes.html", user = current_user, evals = current_user.get_evaluations())

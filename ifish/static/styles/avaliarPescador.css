@@ -144,15 +144,11 @@
   top: 350px;
   z-index: 1;
 }
-.texto-vertical {
-  writing-mode: vertical-rl; /* vertical da direita para a esquerda */
-  text-orientation: upright;
-}
-.rectangle-66 input {
-  width: 100%; /* Ajuste conforme necessário para a largura desejada */
-  height: 100%;
-  border: none; /* Remova a borda padrão do input se desejar */
-  size: 10;
+textarea {
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  width: 300px;
+  height: 200px;
 }
 .rectangle-67 {
   background: #50caff;
@@ -162,14 +158,19 @@
   position: absolute;
   left: 26px;
   top: 723px;
-  color: #000000;
-  text-align: center;
-  font-family: "Inter-Regular", sans-serif;
-  font-size: 26px;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
   z-index: 1;
+}
+.rectangle-67t {
+  background: #50caff;
+  border-radius: 15px;
+  width: 302px;
+  height: 61px;
+  position: absolute;
+  left: 26px;
+  top: 723px;
+  z-index: 4;
+  opacity: 0;
+  cursor: pointer;
 }
 .enviar {
   color: #000000;
@@ -198,6 +199,7 @@
   position: relative;
   top: 625px;
   font-size: 38px;
+  cursor: pointer;
 }
 .estrelas input[type=radio]:checked ~ label i.fa:before {
   color: #CCC;

@@ -25,8 +25,9 @@ def carrinho():
         if request.form.get('redirect') == 'home':
             return redirect(url_for('comprador.homeComprador'))
         elif request.form.get('continuar') == 'Continuar':
-            current_user.commit_last_transaction()
-            return redirect(url_for('comprador.avaliarPescador'))
+            if not current_user.lastTransactionFinished:
+                current_user.commit_last_transaction()
+                return redirect(url_for('comprador.avaliarPescador'))
 
     return view.showCarrinho(current_user, cart = current_user.get_active_transaction())
 
