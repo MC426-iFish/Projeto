@@ -21,10 +21,10 @@ class Views(metaclass=ViewsMeta):
     def showsignUp(self):
         return render_template("signUp.html")
 
-    def showAlterarUser():
+    def showAlterarUser(self):
         return render_template("alterarUser.html")
 
-    def showAlterarSenha():
+    def showAlterarSenha(self):
         return render_template("alterarSenha.html")
 
     def showInitial(self):

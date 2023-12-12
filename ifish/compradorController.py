@@ -64,6 +64,11 @@ def perfilComprador():
             return redirect(url_for('comprador.homeComprador'))
         elif request.form['redirect'] == 'Logout':
             return redirect(url_for('auth.logout'))
+        elif request.form['redirect'] == 'Alterar Senha':
+            return redirect(url_for('alterador.alterarSenha'))
+        elif request.form['redirect'] == 'Trocar':
+            return redirect(url_for('alterador.alterarUser'))
+
 
     return view.showPerfilComprador(user)
 
