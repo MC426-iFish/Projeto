@@ -129,7 +129,7 @@
         <div class="caetano-4-8-5">
             {{user.name.split()[0]}}
             <br />
-            4,8/5
+            {{"{:.2f}".format(user.get_evaluation_grade())}} / 5
         </div>
         <form action="#" method="post">
             <input class="usu-riot" type="submit" name="redirect" value="perfil"/>
@@ -155,7 +155,6 @@
             </defs>
         </svg>
     
-        <div class="ellipse-9"></div>
         <svg
             class="star-solid-1"
             width="24"
@@ -178,6 +177,9 @@
         </svg>
         </div>
         <div class="rectangle-73"></div>
+        <form action="#" method="POST">
+            <input class="rectangle-73t" type="submit" name="redirect" value="avaliacoes"/>
+        </form>
         <div class="avalia-es">Avaliações</div>
     </div>
     </center>

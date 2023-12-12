@@ -115,7 +115,7 @@
                   <div class="nome-de-usu-rio">Nome de usuário</div>
                   <div class="nota-de-avalia-o">Nota de avaliação</div>
                   <div class="rodrigo-zuiani">{{user.name}}</div>
-                  <div class="_4-8-5">4,8 / 5</div>
+                  <div class="_4-8-5">{{"{:.2f}".format(user.get_evaluation_grade())}} / 5</div>
                 </div>
                 <form action="#" method="post">
                     <input class="trocar" type="submit" name="redirect" value="Trocar"/>

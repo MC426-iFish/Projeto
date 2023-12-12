@@ -11,6 +11,7 @@ class User(db.Model, UserMixin):
     fishInventory = db.relationship('Fish', backref='owner', lazy=True)
     cartInventory = db.relationship('Cart', backref='owner', lazy=True)
     lastTransactionFinished = db.Column(Boolean, default = True)
+    evaluations = db.relationship("Evaluation", backref='owner', lazy=True)
 
     def __init__(self, name, email, password, userType):
         self.name = name
@@ -36,6 +37,29 @@ class User(db.Model, UserMixin):
         else:
             raise PermissionError("Shouldn't be allowed")
     
+    def add_evaluation(self, comment, grade, comentor):
+        if self.user_type == 'pescador':
+            new_evaluation = Evaluation(comment=comment, grade=grade, comentor_id = comentor.id)
+            self.evaluations.append(new_evaluation)
+            db.session.add(new_evaluation)
+            db.session.commit()
+        else:
+            raise PermissionError("Shouldn't be allowed")
+        
+    def get_evaluation_grade(self):
+        if self.user_type == 'pescador':
+            grade = 0
+            count = 0
+            for evaluation in self.evaluations:
+                grade += evaluation.grade
+                count += 1
+            if count != 0:
+                grade = grade / count
+                return grade
+            return 5
+        else:
+            raise PermissionError("Shouldn't be allowed")
+
     def remove_fish(self, type, price):
         if self.user_type == 'pescador':
             fish_to_delete = self.search_own_fish(type, price)
@@ -92,9 +116,20 @@ class User(db.Model, UserMixin):
             if Cart.query.filter_by(id = i.cart_id).first().paid:
                 past_transactions.append(i)
         return past_transactions
-    
+     
     def get_fishes(self):
         return Fish.query.filter(Fish.user_id == self.id, Fish.quantity > 0).all()
+    
+    def get_evaluations(self):
+        return self.evaluations
+    
+    def get_last_fisher(self):
+        last_transaction = None
+        last_cart = Cart.query.filter_by(buyer_id = self.id).order_by(Cart.id.desc()).first()
+        if last_cart.paid:
+            last_transaction = Transaction.query.filter_by(cart_id = last_cart.id).first()
+            return last_transaction.get_fisher()
+        return last_transaction
     
 class Fish(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -117,6 +152,24 @@ class Fish(db.Model):
 
     def get_fish_owner(self):
         return User.query.filter_by(id=self.user_id).first()
+    
+class Evaluation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.String(200))
+    grade = db.Column(db.Integer)
+    comentor_id = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __init__(self, comment, grade, comentor_id):
+        self.comment = comment
+        self.grade = grade
+        self.comentor_id = comentor_id
+    
+    def get_evaluation_owner(self):
+        return User.query.filter_by(id=self.user_id).first()
+    
+    def get_evaluator_name(self):
+        return User.query.filter_by(id=self.comentor_id).first().name
 
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -150,12 +203,10 @@ class Cart(db.Model):
             if not i.can_commit():
                 db.session.delete(i)
                 print("Não foi possível concluir a compra")
-                
 
         for i in Transaction.query.filter(Transaction.cart_id == self.id).all():
             print("Commiting transaction", i.id)
             i.commit_transaction()
-                
 
         self.paid = True
         db.session.commit()   
@@ -200,11 +251,16 @@ class Transaction(db.Model):
              
 
     def get_fish_type(self):
-        
         return Fish.query.filter_by(id = self.fish_id).first().type
 
     def get_fisher_name(self):
         return User.query.filter_by(id = self.fisher_id).first().name
+    
+    def get_fisher(self):
+        return User.query.filter_by(id = self.fisher_id).first()
+    
+    def get_fisher_grade(self):
+        return User.query.filter_by(id = self.fisher_id).first().get_evaluation_grade()
     
     def get_buyer_name(self):
         buyer_id = Cart.query.filter_by(id = self.cart_id).first().buyer_id

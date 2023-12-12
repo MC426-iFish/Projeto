@@ -12,6 +12,8 @@ def homePescador():
             return redirect(url_for("pescador.estoque"))
         if request.form['redirect'] == 'perfil':
             return redirect(url_for("pescador.perfilPescador"))
+        if request.form['redirect'] == 'avaliacoes':
+            return redirect(url_for("pescador.avaliacoes"))
         
     return view.showHomePescador(current_user)
 
@@ -39,5 +41,15 @@ def perfilPescador():
             return redirect(url_for("pescador.homePescador"))
         elif request.form['redirect'] == 'Logout':
             return redirect(url_for("auth.logout"))
+        elif request.form['redirect'] == 'Mais Detalhes':
+            return redirect(url_for("pescador.avaliacoes"))
         
     return view.showPerfilPescador(user)
+
+@pescador.route('/avaliacoes', methods=['GET', 'POST'])
+def avaliacoes():
+    user = current_user
+    if request.method == "POST":
+        if request.form['redirect'] == 'home':
+            return redirect(url_for("pescador.homePescador"))    
+    return view.showAvaliacoes(user)

@@ -394,7 +394,7 @@
                         {% if fishes %}
                           <ul class="no-bullets">
                             {% for fish in fishes %}
-                              <li><INPUT TYPE="RADIO" NAME="OPCAO" VALUE={{fish.id}} required>{{fish.type}}, R${{fish.price}}/kg, {{fish.quantity}} kg<br><i>Pescador: {{fish.get_fish_owner().name.split()[0]}}</i></li>
+                              <li><INPUT TYPE="RADIO" NAME="OPCAO" VALUE={{fish.id}} required>{{fish.type}}, R${{fish.price}}/kg, {{fish.quantity}} kg<br><i>Pescador: {{fish.get_fish_owner().name.split()[0]}}</i>, {{"{:.2f}".format(fish.get_fish_owner().get_evaluation_grade())}} / 5</li>
                             {% endfor %}
                           </ul>
                         {% endif %}

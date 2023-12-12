@@ -26,6 +26,7 @@ def carrinho():
             return redirect(url_for('comprador.homeComprador'))
         elif request.form.get('continuar') == 'Continuar':
             current_user.commit_last_transaction()
+            return redirect(url_for('comprador.avaliarPescador'))
 
     return view.showCarrinho(current_user, cart = current_user.get_active_transaction())
 
@@ -64,3 +65,17 @@ def perfilComprador():
             return redirect(url_for('auth.logout'))
 
     return view.showPerfilComprador(user)
+
+@comprador.route('/avaliarPescador', methods=['GET', 'POST'])
+def avaliarPescador():
+    if request.method == "POST":
+        comment = request.form.get("comment")
+        grade = request.form.get("fb")
+
+        #Pegar o vendedor da última venda
+        fisher = current_user.get_last_fisher()            
+
+        fisher.add_evaluation(comment, grade, current_user)
+        
+        return redirect(url_for('comprador.homeComprador'))
+    return view.showAvaliarPescador(current_user)
