@@ -44,7 +44,7 @@ class TestCadastro(unittest.TestCase):
         self.assertEqual(validation, exp_val)
 
         message, validation = validate("Jotape", "jotape@gmail.com",  "JCcca", "JCcca", False)
-        exp_msg = 'A senha deve ter mais que 5 caracteres'
+        exp_msg = 'A senha deve ter mais que 5 caracteres.'
         exp_val = False
         self.assertEqual(message, exp_msg)
         self.assertEqual(validation, exp_val)
