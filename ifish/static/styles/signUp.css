@@ -1,0 +1,456 @@
+.criar-conta,
+.criar-conta * {
+  box-sizing: border-box;
+}
+.criar-conta {
+  background: #ffffff;
+  width: 360px;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.group-41 {
+  position: absolute;
+  inset: 0;
+}
+.zondicons-view-show {
+  position: absolute;
+  left: 276px;
+  top: 453px;
+  overflow: visible;
+}
+.fluent-emoji-fish {
+  width: 81px;
+  height: 81px;
+  position: absolute;
+  left: calc(50% - 41px);
+  top: 46px;
+  overflow: hidden;
+}
+.group {
+  position: absolute;
+  inset: 0;
+}
+.vector2 {
+  position: absolute;
+  left: 5.06px;
+  top: 47.82px;
+  overflow: visible;
+}
+.vector3 {
+  position: absolute;
+  left: 5.06px;
+  top: 42.75px;
+  overflow: visible;
+}
+.group2 {
+  position: absolute;
+  left: 7.59px;
+  top: 27.05px;
+  overflow: visible;
+}
+.vector6 {
+  position: absolute;
+  left: 7.59px;
+  top: 27.05px;
+  overflow: visible;
+}
+.vector7 {
+  position: absolute;
+  left: 7.59px;
+  top: 27.05px;
+  overflow: visible;
+}
+.group3 {
+  position: absolute;
+  left: 29.35px;
+  top: 35.43px;
+  overflow: visible;
+}
+.group4 {
+  position: absolute;
+  left: 29.35px;
+  top: 35.43px;
+  overflow: visible;
+}
+.vector13 {
+  position: absolute;
+  left: 20.71px;
+  top: 42.98px;
+  overflow: visible;
+}
+.vector14 {
+  position: absolute;
+  left: 20.71px;
+  top: 42.98px;
+  overflow: visible;
+}
+.vector15 {
+  position: absolute;
+  left: 20.71px;
+  top: 42.98px;
+  overflow: visible;
+}
+.vector16 {
+  position: absolute;
+  left: 63.28px;
+  top: 49.04px;
+  overflow: visible;
+}
+.vector17 {
+  position: absolute;
+  left: 63.28px;
+  top: 49.04px;
+  overflow: visible;
+}
+.vector18 {
+  position: absolute;
+  left: 63.28px;
+  top: 49.04px;
+  overflow: visible;
+}
+.vector19 {
+  position: absolute;
+  left: 63.28px;
+  top: 49.04px;
+  overflow: visible;
+}
+.vector20 {
+  position: absolute;
+  left: 63.28px;
+  top: 26.89px;
+  overflow: visible;
+}
+.vector21 {
+  position: absolute;
+  left: 63.28px;
+  top: 26.89px;
+  overflow: visible;
+}
+.vector22 {
+  position: absolute;
+  left: 63.28px;
+  top: 26.89px;
+  overflow: visible;
+}
+.vector23 {
+  position: absolute;
+  left: 32.83px;
+  top: 70.87px;
+  overflow: visible;
+}
+.vector24 {
+  position: absolute;
+  left: 32.83px;
+  top: 70.87px;
+  overflow: visible;
+}
+.vector25 {
+  position: absolute;
+  left: 32.83px;
+  top: 70.87px;
+  overflow: visible;
+}
+.vector26 {
+  position: absolute;
+  left: 30.65px;
+  top: 14.83px;
+  overflow: visible;
+}
+.vector27 {
+  position: absolute;
+  left: 30.65px;
+  top: 14.83px;
+  overflow: visible;
+}
+.vector28 {
+  position: absolute;
+  left: 30.65px;
+  top: 14.83px;
+  overflow: visible;
+}
+.group-39 {
+  width: 277px;
+  height: 548px;
+  position: static;
+}
+.criar-conta2 {
+  color: #000000;
+  text-align: left;
+  font: 700 28px "Inter", sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  left: 82px;
+  top: 163px;
+}
+.group-23 {
+  width: 277px;
+  height: 46px;
+  position: static;
+}
+.rectangle-35 {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 277px;
+  height: 46px;
+  position: absolute;
+  left: 41px;
+  top: 506px;
+  cursor: pointer;
+  font: 400 17px "Inter", sans-serif;
+}
+.criar-conta3 {
+  color: #000000;
+  text-align: left;
+  font: 600 14px "Inter", sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  left: 130px;
+  top: 521px;
+  width: 98px;
+  height: 16px;
+}
+.group-25 {
+  width: 277px;
+  height: 37px;
+  position: static;
+}
+.rectangle-50 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 277px;
+  height: 37px;
+  position: absolute;
+  left: 41px;
+  top: 259px;
+}
+.nome-completo {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: left;
+  font: 400 18px "Inter", sans-serif;
+  position: absolute;
+  left: calc(50% - 68px);
+  top: 266px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.group-26 {
+  width: 277px;
+  height: 37px;
+  position: static;
+}
+.rectangle-56 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 277px;
+  height: 37px;
+  position: absolute;
+  left: 41px;
+  top: 321px;
+}
+.email {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: left;
+  font: 400 18px "Inter", sans-serif;
+  position: absolute;
+  left: 156px;
+  top: 328px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.group-31 {
+  width: 277px;
+  height: 37px;
+  position: static;
+}
+.group-28 {
+  width: 277px;
+  height: 37px;
+  position: static;
+}
+.rectangle-58 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 277px;
+  height: 37px;
+  position: absolute;
+  left: 41px;
+  top: 444px;
+}
+.confirmar-senha {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: left;
+  font: 400 18px "Inter", sans-serif;
+  position: absolute;
+  left: 109px;
+  top: 452px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.continuar-com-o-google {
+  color: #000000;
+  text-align: left;
+  font: 400 15px "Inter", sans-serif;
+  position: absolute;
+  left: calc(50% - 87px);
+  top: 574px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.group-32 {
+  width: 277px;
+  height: 37px;
+  position: static;
+}
+.group-30 {
+  width: 277px;
+  height: 37px;
+  position: static;
+}
+.group-27 {
+  width: 277px;
+  height: 37px;
+  position: static;
+}
+.rectangle-57 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 277px;
+  height: 37px;
+  position: absolute;
+  left: 41px;
+  top: 383px;
+}
+.senha {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: left;
+  font: 400 18px "Inter", sans-serif;
+  position: absolute;
+  left: 152px;
+  top: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.zondicons-view-show2 {
+  position: absolute;
+  left: 276px;
+  top: 391px;
+  overflow: visible;
+}
+.group-38 {
+  width: 55px;
+  height: 52px;
+  position: static;
+}
+.group-24 {
+  width: 55px;
+  height: 52px;
+  position: static;
+}
+.rectangle-36 {
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 55px;
+  height: 52px;
+  position: absolute;
+  left: 152px;
+  top: 617px;
+}
+.flat-color-icons-google {
+  position: absolute;
+  left: 164px;
+  top: 628px;
+  overflow: visible;
+}
+.house-solid-3 {
+  position: absolute;
+  left: 24px;
+  top: 726px;
+  overflow: visible;
+}
+.flash-messages {
+  list-style: none;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.flash-message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+}
+.flash-message.success {
+  color: green;
+}
+.flash-message.danger {
+  color: red;
+}
+.radio-button {
+  position: relative;
+  top: -13px;
+  font: 400 17px "Inter", sans-serif;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  width: 350px;
+  position: absolute;
+  z-index: 100;
+  left: 869px;
+}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: black;
+}
+.ja-tem-conta {
+  position: absolute;
+  top: 562px;
+  font: 400 17px "Inter", sans-serif;
+  left: 55px;
+}.fazer-login {
+  position: absolute;
+  top: 560px;
+  font: 400 17px "Inter", sans-serif;
+  left: 217px;
+  color: #1976d2;
+  cursor: pointer;
+  border-color: transparent;
+  width: 92px;
+  outline: transparent;
+  background-color: transparent;
+}
+.fazer-login:hover {
+  text-decoration: underline;
+}

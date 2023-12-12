@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>Avaliações</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/avaliacoes.css')}}">
+    </head>
+    <body>
+        <center>
+            <div class="tela-hist-rico-comprador">
+                <div class="rectangle-8"></div>
+                <form action="#" method="POST">
+                    <input class="house-solid-1t" type="submit" name="redirect" value="home"/>
+                </form>
+                <svg
+                  class="house-solid-1"
+                  width="50"
+                  height="50"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_1858_181)">
+                    <path
+                      d="M49.9826 24.9512C49.9826 26.709 48.6806 28.0859 47.2049 28.0859H44.4271L44.4879 43.7305C44.4879 43.9941 44.4705 44.2578 44.4444 44.5215V46.0938C44.4444 48.252 42.8906 50 40.9722 50H39.5833C39.4879 50 39.3924 50 39.2969 49.9902C39.1754 50 39.0538 50 38.9323 50H36.1111H34.0278C32.1094 50 30.5556 48.252 30.5556 46.0938V43.75V37.5C30.5556 35.7715 29.3142 34.375 27.7778 34.375H22.2222C20.6858 34.375 19.4444 35.7715 19.4444 37.5V43.75V46.0938C19.4444 48.252 17.8906 50 15.9722 50H13.8889H11.1198C10.9896 50 10.8594 49.9902 10.7292 49.9805C10.625 49.9902 10.5208 50 10.4167 50H9.02778C7.10938 50 5.55556 48.252 5.55556 46.0938V35.1562C5.55556 35.0684 5.55556 34.9707 5.56424 34.8828V28.0859H2.77778C1.21528 28.0859 0 26.7188 0 24.9512C0 24.0723 0.260417 23.291 0.868056 22.6074L23.125 0.78125C23.7326 0.0976562 24.4271 0 25.0347 0C25.6424 0 26.3368 0.195312 26.8576 0.683594L49.0278 22.6074C49.7222 23.291 50.0694 24.0723 49.9826 24.9512Z"
+                      fill="black"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1858_181">
+                      <rect width="50" height="50" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              
+                <div class="boa-tarde-cl-ber">
+                  Boa Tarde,
+                  <br />
+                  {{user.name.split()[0]}}
+                </div>
+                <svg
+                  class="circulo-vazado"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_1842_76)">
+                    <path
+                      d="M18.125 10C18.125 7.84512 17.269 5.77849 15.7452 4.25476C14.2215 2.73102 12.1549 1.875 10 1.875C7.84512 1.875 5.77849 2.73102 4.25476 4.25476C2.73102 5.77849 1.875 7.84512 1.875 10C1.875 12.1549 2.73102 14.2215 4.25476 15.7452C5.77849 17.269 7.84512 18.125 10 18.125C12.1549 18.125 14.2215 17.269 15.7452 15.7452C17.269 14.2215 18.125 12.1549 18.125 10ZM0 10C0 7.34784 1.05357 4.8043 2.92893 2.92893C4.8043 1.05357 7.34784 0 10 0C12.6522 0 15.1957 1.05357 17.0711 2.92893C18.9464 4.8043 20 7.34784 20 10C20 12.6522 18.9464 15.1957 17.0711 17.0711C15.1957 18.9464 12.6522 20 10 20C7.34784 20 4.8043 18.9464 2.92893 17.0711C1.05357 15.1957 0 12.6522 0 10Z"
+                      fill="black"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1842_76">
+                      <rect width="20" height="20" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              
+                <div class="pescadores-do-m-s">Pescadores do mês</div>
+               
+              
+                <div class="search">
+                  <div class="rectangle-60"></div>
+                  <div class="rectangle-64"></div>
+                  <div class="tobaro-pescados-27-04-2023-19-14-1-kg-salm-o-r-48-75">
+                    <span>
+                      
+                      <span
+                        class="tobaro-pescados-27-04-2023-19-14-1-kg-salm-o-r-48-75-span2"
+                      >
+                          {% with evals = evals %}
+                          {% if evals %}
+                            <ul class="transactions">
+                            {% for eval in evals %}
+                              <li>{{ eval.get_evaluator_name() }} avaliou como: {{"{:.2f}".format(eval.grade)}} / 5,
+                                <br />
+                                Comentário: {{eval.comment}}</li>
+                            {% endfor %}
+                            </ul>
+                          {% endif %}
+                        {% endwith %}
+                      </span>
+                    </span>
+                  </div>
+                  
+                  <div class="ltimas-compras">Avaliações</div>
+                </div>
+            </div>              
+        </center>
+    </body>
+</html>

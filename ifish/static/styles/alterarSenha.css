@@ -1,0 +1,236 @@
+.login,
+.login * {
+  box-sizing: border-box;
+}
+.login {
+  background: #ffffff;
+  width: 360px;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.group-42 {
+  position: absolute;
+  inset: 0;
+}
+.fluent-emoji-fish {
+  width: 81px;
+  height: 107.34px;
+  position: absolute;
+  left: calc(50% - 41px);
+  top: 46px;
+  overflow: hidden;
+}
+.group {
+  height: auto;
+  position: absolute;
+  right: 7.13%;
+  left: 6.25%;
+  width: 86.62%;
+  bottom: 6.29%;
+  top: 18.31%;
+  height: 75.4%;
+  overflow: visible;
+}
+.group-40 {
+  width: 277px;
+  height: 327.98px;
+  position: static;
+}
+.alterar-senha {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  left: 42px;
+  top: 235px;
+  width: 264px;
+  height: 46px;
+}
+.group-23 {
+  width: 277px;
+  height: 60.96px;
+  position: static;
+}
+.rectangle-35 {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 277px;
+  height: 60.96px;
+  position: absolute;
+  left: 41px;
+  top: 502.02px;
+}
+
+.rectangle-35t {
+  background: #71ccff;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 277px;
+  height: 60.96px;
+  position: absolute;
+  left: 41px;
+  top: 502.02px;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.enviar {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: absolute;
+  left: 150px;
+  top: 521.9px;
+  width: 59px;
+  height: 21.2px;
+}
+.group-26 {
+  width: 277px;
+  height: 59px;
+  position: static;
+}
+.rectangle-56 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 277px;
+  height: 49.03px;
+  position: absolute;
+  left: 41px;
+  top: 362.71px;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  align-items: center;
+}
+
+.nova-senha {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  right: 54px;
+  bottom: 47.88%;
+  top: 44.75%;
+  height: 7.38%;
+  width: 177px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.group-32 {
+  width: 277px;
+  height: 49.14px;
+  position: static;
+}
+.group-30 {
+  width: 277px;
+  height: 49.14px;
+  position: static;
+}
+.group-27 {
+  width: 277px;
+  height: 49.14px;
+  position: static;
+}
+.rectangle-57 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 277px;
+  height: 49.03px;
+  position: absolute;
+  left: 41px;
+  top: 428px;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.confirmar-senha {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  left: 80px;
+  top: 431.14px;
+  width: 206px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.zondicons-view-show {
+  width: 20px;
+  height: 26.5px;
+  position: absolute;
+  left: 276px;
+  top: 438.6px;
+  overflow: visible;
+}
+.rectangle-58 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 277px;
+  height: 49.03px;
+  position: absolute;
+  left: 41px;
+  top: 299px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.senha-atual {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  left: 58px;
+  top: 300px;
+  width: 238px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+

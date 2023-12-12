@@ -1,0 +1,117 @@
+.login,
+.login * {
+  box-sizing: border-box;
+}
+.login {
+  background: #ffffff;
+  width: 360px;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-9 {
+  background: #71ccff;
+  border-radius: 10px;
+  width: 360px;
+  height: 140px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.i-fish {
+  color: #0f0f36;
+  text-align: left;
+  position: absolute;
+  left: 117px;
+  top: 63px;
+  width: 146px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.i-fish-span {
+  color: #0f0f36;
+  font-family: "Inter-ExtraBold", sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+}
+.i-fish-span2 {
+  color: #0f0f36;
+  font-family: "Inter-ExtraBold", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+.rectangle-19 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 235px;
+  height: 73px;
+  position: absolute;
+  left: 62px;
+  top: 359px;
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  align-items: center;
+  cursor: pointer;
+}
+.rectangle-20 {
+  background: #d9d9d9;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 235px;
+  height: 73px;
+  position: absolute;
+  left: 62px;
+  top: 464px;
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  align-items: center;
+  cursor: pointer;
+}
+.house-solid-1 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 24px;
+  top: 722px;
+  overflow: visible;
+}
+.house-solid-2 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 24px;
+  top: 722px;
+  overflow: visible;
+}
+.fluent-emoji-fish {
+  width: 81px;
+  height: 81px;
+  position: absolute;
+  left: calc(50% - 41px);
+  top: 220px;
+  overflow: hidden;
+}
+.group {
+  height: auto;
+  position: absolute;
+  right: 7.13%;
+  left: 6.25%;
+  width: 86.62%;
+  bottom: 6.29%;
+  top: 18.31%;
+  height: 75.4%;
+  overflow: visible;
+}
