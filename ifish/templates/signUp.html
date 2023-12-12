@@ -2,17 +2,16 @@
     <head>
         <title>signUp</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/signUp.css')}}">
+        {% with messages=get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+            <div class='alert'>
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endwith %}
     </head>
     <body>
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <ul class="flash-messages">
-              {% for message in messages %}
-                <li>{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}
         <center>
         <div class="criar-conta">
           <div class="group-41">
@@ -854,6 +853,10 @@
                   </div>
               </div>
             </div>
+            </form>
+            <div class="ja-tem-conta">Já possui uma conta?</div>
+            <form action="#" method="post">
+              <input class="fazer-login" type="submit" name="singUpSubmit" value="Fazer login"/>
             </form>
           </div>
         </div>
