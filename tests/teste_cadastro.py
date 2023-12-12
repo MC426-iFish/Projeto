@@ -18,7 +18,7 @@ class TestCadastro(unittest.TestCase):
         self.assertEqual(validation, exp_val)
 
         message, validation = validate("Joao Carlos", "jcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",  "JCzik123", "JCzik123", False)
-        exp_msg ='O email deve ter menos que 100 caracteres.'
+        exp_msg ='O e-mail deve ter menos que 100 caracteres.'
         exp_val = False
         self.assertEqual(message, exp_msg)
         self.assertEqual(validation, exp_val)
@@ -31,7 +31,7 @@ class TestCadastro(unittest.TestCase):
         self.assertEqual(validation, exp_val)
 
         message, validation = validate("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "jotape@gmail.com",  "JCzik123", "JCzik123", False)
-        exp_msg ='O nome deve ter menos que 100 caracteres'
+        exp_msg ='O nome deve ter menos que 100 caracteres.'
         exp_val = False
         self.assertEqual(message, exp_msg)
         self.assertEqual(validation, exp_val)
